@@ -1,0 +1,48 @@
+form {
+    width: 100%;
+    padding: 90px 40px 40px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 2%;
+    position: relative;
+    box-shadow: 0 0 .3em #cdcdcd;
+    border-radius: 5px;
+}
+
+form label {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+form label span {
+    color: #f00;
+}
+form label div {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form label div input,
+form label div select {
+    width: 100%;
+    margin: 3px 0 0 0;
+    padding: 12px 12px 12px 30px;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+}
+form label div input:focus,
+form label div select:focus {
+    outline-color: var(--secundary-color);
+}
+form label div i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    position: absolute;
+    left: 10px;
+    color: #404040;
+}

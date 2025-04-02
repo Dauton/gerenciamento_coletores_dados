@@ -1,0 +1,44 @@
+.container-buttons {
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+button {
+    min-width: 80px;
+    padding: 5px 15px;
+    border: 1px solid var(--secundary-color);
+    border-radius: 2px;
+    color: #fff;
+    background: var(--secundary-color);
+    font-size: 12px;
+    cursor: pointer;
+}
+button:hover {
+    background: var(--terciary-color);
+    border: 1px solid var(--terciary-color);
+}
+
+#btn-cancelar {
+    background: #fff;
+    border: 1px solid var(--terciary-color);
+    color: var(--terciary-color);
+}
+#btn-cancelar:hover {
+    background: var(--terciary-color);
+    color: #f1f1f1;
+}
+
+#btn-table-red,
+#btn-table-blue {
+    font-size: 25px;
+    margin: 0 5px;
+}
+#btn-table-red:hover,
+#btn-table-blue:hover {
+    filter: brightness(70%);
+}
+#btn-table-red {
+    color: #f00;
+}
+#btn-table-blue {
+    color: var(--primary-color);
+}

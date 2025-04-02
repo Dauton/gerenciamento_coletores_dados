@@ -1,0 +1,162 @@
+@import url(menu-lateral.css);
+@import url(login-page.css);
+
+@import url(form.css);
+@import url(table.css);
+
+@import url(buttons.css);
+@import url(alerts.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #0088ff;
+    --secundary-color: #005876;
+    --terciary-color: #00384b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.principal {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 10px 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f1f1f1;
+}
+.centro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 .3em #cdcdcd;
+    overflow: hidden;
+}
+
+.cabecalho {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, var(--secundary-color), var(--terciary-color));
+    color: #f1f1f1;
+}
+.cabecalho-title {
+    font-weight: bold;
+    font-size: 15px;
+}
+.cabecalho-title a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 100;
+    font-style: italic;
+}
+.cabecalho i {
+    font-size: 20px;
+}
+
+.conteudo {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    overflow: scroll;
+}
+.conteudo-title {
+    width: 100%;
+    padding: 10px;
+}
+.conteudo-title h1 {
+    font-weight: 200;
+    font-size: 20px;
+}
+.conteudo-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+.conteudo-center .links-container {
+    width: 800px;
+    padding: 90px 40px 40px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    box-shadow: 0 0 .3em #cdcdcd;
+    border-radius: 5px;
+    position: relative;
+}
+.container-cabecalho {
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(to right, var(--secundary-color), var(--terciary-color));
+    color: #fff;
+}
+.container-cabecalho h1 {
+    font-size: 17px;
+    font-weight: 100;
+}
+.conteudo-center .links-container a {
+    text-decoration: none;
+    transition: .3s;
+}
+.conteudo-center .links-container .link {
+    width: 150px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 3px;
+    background: var(--secundary-color);
+    color: #f1f1f1;
+}
+.conteudo-center .links-container .link i {
+    font-size: 40px;
+}
+.conteudo-center .links-container a:nth-child(odd):hover {
+    transform: rotate(-5deg) scale(1.05);
+    transition: .2s;
+}
+
+.conteudo-center .links-container a:nth-child(even):hover {
+    transform: rotate(5deg) scale(1.05);
+    transition: .2s;
+}
+
+
+.rodape {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    color: #808080;
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+}

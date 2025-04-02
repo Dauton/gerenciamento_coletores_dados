@@ -1,0 +1,28 @@
+#login-form {
+    width: 360px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 .3em #cdcdcd;
+    border-top: 4px solid var(--secundary-color);
+    border-radius: 5px;
+    background: #fff;
+
+}
+#login-form label {
+    width: 100%;
+}
+#login-form label input {
+    padding: 10px 10px 10px 30px;
+    border: none;
+    background: #eaf5ff;
+}
+#login-form img {
+    width: 120px;
+    margin: 0 0 20px 0;
+}
+
+#login-form .container-buttons {
+    margin: 20px 0 0 0;
+}

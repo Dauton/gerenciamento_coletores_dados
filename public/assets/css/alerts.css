@@ -1,0 +1,32 @@
+#input-error {
+    color: #f00;
+    font-size: 12px;
+    margin: 5px 0 -5px 0;
+}
+.login-error {
+    margin: 15px 0 0 0;
+    padding: 10px;
+    border-radius: 2px;
+    background: #ff5e5e;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.alert-result {
+    padding: 10px;
+    border-radius: 3px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+}
+.success {
+    background: #4ed84e;
+}
+.error {
+    background: #ff5e5e;
+}
+.info {
+    background: #5eccff;
+}

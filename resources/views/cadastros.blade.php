@@ -1,0 +1,49 @@
+@extends('layouts.content')
+@section('content')
+    @include('layouts.menu-lateral')
+    <section class="centro">
+        <header class="cabecalho">
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / Cadastros</h1>
+            <i class="fa-solid fa-house"></i>
+        </header>
+        <article class="conteudo">
+            <section class="conteudo-title">
+                <h1>Cadastros</h1>
+            </section>
+            <section class="conteudo-center">
+                <div class="links-container">
+                    <header class="container-cabecalho">
+                        <h1>Selecione o que deseja cadastrar</h1>
+                    </header>
+                    <a href="{{ route('usuarios') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-users-gear"></i>
+                            <h3>Usuários</h3>
+                        </div>
+                    </a>
+
+                    <a href="{{ route('usuarios') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <h3>Sites</h3>
+                        </div>
+                    </a>
+                    <a href="{{ route('usuarios') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-business-time"></i>
+                            <h3>Turnos</h3>
+                        </div>
+                    </a>
+
+                    <a href="{{ route('usuarios') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-burst"></i>
+                            <h3>Avarias</h3>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </article>
+        @include('layouts.rodape')
+    </section>
+@endsection
