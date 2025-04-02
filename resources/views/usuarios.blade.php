@@ -157,7 +157,7 @@
                                 <td>{{$dados->perfil}}</td>
                                 <td>{{$dados->status}}</td>
                                 <td>
-                                    <a href=""><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="update-usuario/{{$dados->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                     <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>

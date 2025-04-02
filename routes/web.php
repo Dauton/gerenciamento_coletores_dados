@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ShowPagesController;
+use App\Http\Controllers\UpdateController;
 use App\Http\Middleware\IsLoggedIn;
 use App\Http\Middleware\IsNotLoggedIn;
 use Illuminate\Support\Facades\Route;
@@ -14,10 +15,12 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
     Route::get('/homepage', [ShowPagesController::class, 'homepagePage'])->name('homepage');
     Route::get('/cadastros', [ShowPagesController::class, 'cadastrosPage'])->name('cadastros');
     Route::get('/usuarios', [ShowPagesController::class, 'usuariosPage'])->name('usuarios');
+    Route::get('/update-usuario/{id}', [ShowPagesController::class, 'updateUsuarioPage'])->name('update-usuario');
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/createUser', [CreateController::class, 'createUser'])->name('createUser');
+    Route::post('/updateUser/{id}', [UpdateController::class, 'updateUser'])->name('updateUser');
 
 });
 

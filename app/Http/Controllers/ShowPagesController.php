@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 
 class ShowPagesController extends Controller
@@ -26,11 +27,17 @@ class ShowPagesController extends Controller
         return view('cadastros');
     }
 
-    // USUÁRIOS PAGES
+    // USUÁRIOS PAGE
     public function usuariosPage()
     {
-
         $dado = Usuario::all();
         return view('usuarios', compact('dado'));
+    }
+
+    // EDITAR USUÁRIO PAGE
+    public function updateUsuarioPage($id)
+    {
+        $dado = Usuario::where('id', $id)->first();
+        return view('update-usuario', compact('dado'));
     }
 }
