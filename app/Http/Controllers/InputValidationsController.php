@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class InputValidationsController extends Controller
 {
+
+    // LOGIN VALIDATIONS
     public static function validationsLogin(Request $request)
     {
         $request->validate(
@@ -20,7 +22,8 @@ class InputValidationsController extends Controller
         );
     }
 
-    public static function validationsUser(Request $request)
+    // CREATE USER VALIDATIONS
+    public static function validationsCreateUser(Request $request)
     {
         $request->validate(
             [
@@ -44,6 +47,61 @@ class InputValidationsController extends Controller
                 'senha.regex' => 'A senha deve possuir pelo menos uma letra maiúscula, uma letra minuscula, um número e um caractere especial.',
                 'repete_senha.required' => 'A senha deve ser confirmada.',
                 'repete_senha.same' => 'A senhas não conferem.'
+            ]
+        );
+    }
+
+    // UPDATE USER VALIDATIONS
+    public static function validationsUpdateUser(Request $request)
+    {
+        $request->validate(
+            [
+                'nome' => ['required'],
+                'usuario' => ['required'],
+                'email' => ['required', 'email'],
+                'site' => ['required'],
+                'perfil' => ['required']
+            ],
+            [
+                'nome.required' => 'O nome deve ser preenchido.',
+                'usuario.required' => 'O usuário deve ser preenchido.',
+                'email.required' => 'O e-mail deve ser preenchido.',
+                'email.email' => 'O e-mail informado não é válido.',
+                'site.required' => 'O site deve ser preenchido.',
+                'perfil.required' => 'O perfil deve ser preenchido.'
+            ]
+        );
+    }
+
+    // RESET PASSWORD VALIDATIONS
+    public static function validationsUpdatePassword(Request $request)
+    {
+        $request->validate(
+            [
+                'senha' => ['required', 'min: 12', 'regex: /[a-z]/', 'regex: /[A-Z]/', 'regex: /[0-9]/', 'regex: /[!@#$%^&*(),.?":{}|<>]/'],
+                'repete_senha' => ['required', 'same:senha']
+            ],
+            [
+                'senha.required' => 'A senha deve ser informada.',
+                'senha.min' => 'A senha deve possuir pelo menos :min caracteres',
+                'senha.regex' => 'A senha deve possuir pelo menos uma letra maiúscula, uma letra minuscula, um número e um caractere especial.',
+                'repete_senha.required' => 'A senha deve ser confirmada.',
+                'repete_senha.same' => 'A senhas não conferem.'
+                ]
+
+            );
+    }
+
+
+    // CREATE AND UPDATE SITE VALIDATIONS
+    public static function validationsSite(Request $request)
+    {
+        $request->validate(
+            [
+                'descricao' => ['required']
+            ],
+            [
+                'descricao.required' => 'A descrição deve ser preenchida.'
             ]
         );
     }

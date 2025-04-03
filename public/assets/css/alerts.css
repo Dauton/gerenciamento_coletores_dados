@@ -17,9 +17,10 @@
     padding: 10px;
     border-radius: 3px;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 17px;
+    right: 17px;
     color: #fff;
+    transition: opacity 1s ease-out;
 }
 .success {
     background: #4ed84e;

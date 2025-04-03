@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ShowPagesController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Middleware\IsLoggedIn;
@@ -16,11 +17,17 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
     Route::get('/cadastros', [ShowPagesController::class, 'cadastrosPage'])->name('cadastros');
     Route::get('/usuarios', [ShowPagesController::class, 'usuariosPage'])->name('usuarios');
     Route::get('/update-usuario/{id}', [ShowPagesController::class, 'updateUsuarioPage'])->name('update-usuario');
+    Route::get('/update-senha/{id}', [ShowPagesController::class, 'updatePasswordPage'])->name('update-senha');
+    Route::get('/sites', [ShowPagesController::class, 'sitesPage'])->name('sites');
+    Route::get('/update-site/{id}', [ShowPagesController::class, 'updateSitePage'])->name('update-site');
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/createUser', [CreateController::class, 'createUser'])->name('createUser');
     Route::post('/updateUser/{id}', [UpdateController::class, 'updateUser'])->name('updateUser');
+    Route::post('/updatePassword/{id}', [PasswordController::class, 'updatePassword'])->name('updatePassword');
+    Route::post('/createSite', [CreateController::class, 'createSite'])->name('createSite');
+    Route::post('/updateSite/{id}', [UpdateController::class, 'updateSite'])->name('updateSite');
 
 });
 

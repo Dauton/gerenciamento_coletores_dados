@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}">
 
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+
 </head>
 <body>
     <main class="principal">

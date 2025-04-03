@@ -22,7 +22,7 @@
                         </div>
                     </a>
 
-                    <a href="{{ route('usuarios') }}">
+                    <a href="{{ route('sites') }}">
                         <div class="link">
                             <i class="fa-solid fa-map-location-dot"></i>
                             <h3>Sites</h3>

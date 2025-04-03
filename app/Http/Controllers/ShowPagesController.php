@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\Usuario;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
@@ -27,17 +28,40 @@ class ShowPagesController extends Controller
         return view('cadastros');
     }
 
-    // USUÁRIOS PAGE
+    // USERS PAGE
     public function usuariosPage()
     {
-        $dado = Usuario::all();
-        return view('usuarios', compact('dado'));
+        $exibir = Usuario::all();
+        return view('usuarios', compact('exibir'));
     }
 
-    // EDITAR USUÁRIO PAGE
+    // UPDATE USER PAGE
     public function updateUsuarioPage($id)
     {
-        $dado = Usuario::where('id', $id)->first();
-        return view('update-usuario', compact('dado'));
+        $exibir = Usuario::where('id', $id)->first();
+        return view('update-usuario', compact('exibir'));
+    }
+
+    // UPDATE PASSWORD USER PAGE
+    public function updatePasswordPage($id)
+    {
+        $exibir = Usuario::where('id', $id)->first();
+        return view('update-senha', compact('exibir'));
+    }
+
+    // SITES PAGE
+    public function sitesPage() {
+        
+        $exibir = Site::all();
+
+        return view('sites', compact('exibir'));
+
+    }
+
+    // UPDATE SITE PAGE
+    public function updateSitePage($id)
+    {
+        $exibir = Site::where('id', $id)->first();
+        return view('update-site', compact('exibir'));      
     }
 }

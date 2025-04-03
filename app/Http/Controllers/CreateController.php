@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class CreateController extends Controller
     public function createUser(Request $request)
     {
 
-        InputValidationsController::validationsUser($request);
+        InputValidationsController::validationsCreateUser($request);
 
         $nome = $request->input('nome');
         $usuario = $request->input('usuario');
@@ -32,7 +33,24 @@ class CreateController extends Controller
             'status' => $status
         ]);
 
-        return redirect('usuarios')->with('alertSuccess', 'Usuário criado com sucesso.');
+        return redirect('usuarios')->with('alertSuccess', 'Usuário cadastrado com sucesso.');
+
+    }
+
+    public function createSite(Request $request)
+    {
+
+        InputValidationsController::validationsSite($request);
+
+        $descricao = $request->input('descricao');
+        $created_by = session('usuario.nome');
+
+        Site::insert([
+            'descricao' => trim(mb_strtoupper($descricao)),
+            'created_by' => $created_by
+        ]);
+
+        return redirect('/sites')->with('alertSuccess', 'Site cadastrado com sucesso.');
 
     }
 }

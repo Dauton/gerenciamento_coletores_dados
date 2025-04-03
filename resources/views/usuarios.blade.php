@@ -4,7 +4,7 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('usuarios') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Usuários</h1>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Usuários</h1>
             <i class="fa-solid fa-users-gear"></i>
         </header>
         <article class="conteudo">
@@ -12,7 +12,7 @@
                 @csrf
 
                 <header class="container-cabecalho">
-                    <h1>Criação de usuário</h1>
+                    <h1>Cadastro de usuário</h1>
                 </header>
                 <label for="nome"><p>Nome<span> *</span></p>
                     <div>
@@ -148,16 +148,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dado as $dados)
+                        @foreach ($exibir as $exibe)
                             <tr>
-                                <td>{{$dados->nome}}</td>
-                                <td>{{$dados->usuario}}</td>
-                                <td>{{$dados->email}}</td>
-                                <td>{{$dados->site}}</td>
-                                <td>{{$dados->perfil}}</td>
-                                <td>{{$dados->status}}</td>
+                                <td>{{$exibe->nome}}</td>
+                                <td>{{$exibe->usuario}}</td>
+                                <td>{{$exibe->email}}</td>
+                                <td>{{$exibe->site}}</td>
+                                <td>{{$exibe->perfil}}</td>
+                                <td>{{$exibe->status}}</td>
                                 <td>
-                                    <a href="update-usuario/{{$dados->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="update-usuario/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                     <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>
