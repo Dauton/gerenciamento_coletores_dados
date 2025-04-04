@@ -61,8 +61,8 @@
                                 <td>{{ $exibe->created_by }}</td>
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
-                                    <a href="update-turno/{{ $exibe->id }}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
-                                    <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
+                                    <a href="update-turno/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="deleteTurno/{{$exibe->id}}"><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>
                             @endforeach

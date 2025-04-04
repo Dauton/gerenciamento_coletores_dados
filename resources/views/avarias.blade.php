@@ -24,7 +24,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #avaria {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -43,7 +43,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #tipo_avaria {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -80,8 +80,8 @@
                                 <td>{{ $exibe->tipo_avaria }}</td>
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
-                                    <a href="update-avaria/{{ $exibe->id }}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
-                                    <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
+                                    <a href="update-avaria/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="deleteAvaria/{{$exibe->id}}"><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>
                             @endforeach

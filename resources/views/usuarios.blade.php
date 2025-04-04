@@ -23,7 +23,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #nome {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -38,7 +38,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #usuario {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -52,7 +52,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #email {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -70,7 +70,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #site {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -88,7 +88,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #perfil {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -102,7 +102,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #senha {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -116,7 +116,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #repete_senha {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -144,6 +144,7 @@
                             <th>Site</th>
                             <th>Perfil</th>
                             <th>Status</th>
+                            <th>último login</th>
                             <th>Cadastrado em</th>
                             <th>Gerenciar</th>
                         </tr>
@@ -157,10 +158,11 @@
                                 <td>{{$exibe->site}}</td>
                                 <td>{{$exibe->perfil}}</td>
                                 <td>{{$exibe->status}}</td>
-                                <td>{{date_format($exibe->created_at,'d/m/Y H:i:s')}}</td>
+                                <td>{{ \Carbon\Carbon::parse($exibe->ultimo_login)->format('d/m/Y - H:i') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($exibe->created_at)->format('d/m/Y -    H:i') }}</td>
                                 <td>
                                     <a href="update-usuario/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
-                                    <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
+                                    <a href="deleteUser/{{$exibe->id}}"><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>
                         @endforeach

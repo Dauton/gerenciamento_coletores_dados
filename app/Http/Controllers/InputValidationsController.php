@@ -106,6 +106,7 @@ class InputValidationsController extends Controller
         );
     }
 
+    // CREATE AND UPDATE AVARIAS
     public static function validationsAvaria(Request $request)
     {
         $request->validate(
@@ -120,6 +121,7 @@ class InputValidationsController extends Controller
         );
     }
 
+    // CREATE AND UPDATE TURNOS
     public static function validationsTurnos(Request $request)
     {
         $request->validate(

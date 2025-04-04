@@ -37,20 +37,6 @@ class ShowPagesController extends Controller
         return view('usuarios', compact('exibir'));
     }
 
-    // UPDATE USER PAGE
-    public function updateUsuarioPage($id)
-    {
-        $exibir = Usuario::where('id', $id)->first();
-        return view('update-usuario', compact('exibir'));
-    }
-
-    // UPDATE PASSWORD USER PAGE
-    public function updatePasswordPage($id)
-    {
-        $exibir = Usuario::where('id', $id)->first();
-        return view('update-senha', compact('exibir'));
-    }
-
     // SITES PAGE
     public function sitesPage() {
 
@@ -60,13 +46,6 @@ class ShowPagesController extends Controller
 
     }
 
-    // UPDATE SITE PAGE
-    public function updateSitePage($id)
-    {
-        $exibir = Site::where('id', $id)->first();
-        return view('update-site', compact('exibir'));
-    }
-
     // AVARIAS PAGE
     public function avariasPage()
     {
@@ -74,18 +53,44 @@ class ShowPagesController extends Controller
         return view('avarias', compact('exibir'));
     }
 
-    // UPDATE AVARIA PAGE
-    public function updateAvariaPage($id)
-    {
-        $exibir = Avaria::where('id', $id)->first();
-        return view('update-avaria', compact('exibir'));
-    }
-
     // TURNOS PAGE
     public function turnosPage()
     {
         $exibir = Turno::all();
         return view('turnos', compact('exibir'));
+    }
+
+
+    // _________________________________________________________________________________________________________________
+
+
+
+    // UPDATE PASSWORD USER PAGE
+    public function updatePasswordPage($id)
+    {
+        $exibir = Usuario::where('id', $id)->first();
+        return view('update-senha', compact('exibir'));
+    }
+    
+    // UPDATE USER PAGE
+    public function updateUsuarioPage($id)
+    {
+        $exibir = Usuario::where('id', $id)->first();
+        return view('update-usuario', compact('exibir'));
+    }
+
+    // UPDATE SITE PAGE
+    public function updateSitePage($id)
+    {
+        $exibir = Site::where('id', $id)->first();
+        return view('update-site', compact('exibir'));
+    }
+
+    // UPDATE AVARIA PAGE
+    public function updateAvariaPage($id)
+    {
+        $exibir = Avaria::where('id', $id)->first();
+        return view('update-avaria', compact('exibir'));
     }
 
     // UPDATE TURNO PAGE

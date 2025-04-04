@@ -151,13 +151,13 @@ h1 {
 }
 .conteudo-center .links-container a:nth-child(odd):hover {
     background: var(--tertiary-color);
-    transform: rotate(-5deg) scale(1.07);
+    transform: rotate(5deg) scale(1.07);
     transition: .2s;
 }
 
 .conteudo-center .links-container a:nth-child(even):hover {
     background: var(--tertiary-color);
-    transform: rotate(5deg) scale(1.07);
+    transform: rotate(-5deg) scale(1.07);
     transition: .2s;
 }
 

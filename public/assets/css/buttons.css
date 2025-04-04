@@ -31,7 +31,6 @@ button:hover {
     background: var(--tertiary-color);
 }
 #btn-sair:hover {
-    border: none;
     background: var(--quaternary-color);
 }
 

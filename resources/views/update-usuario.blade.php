@@ -24,7 +24,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #nome {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -39,7 +39,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #usuario {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -53,7 +53,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #email {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -71,7 +71,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #site {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -89,7 +89,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #perfil {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror

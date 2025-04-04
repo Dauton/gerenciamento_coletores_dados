@@ -15,7 +15,7 @@
             <p id="input-error">{{ $message }}</p>
             <style>
                 #usuario {
-                    box-shadow: 0 0 .3em #f00
+                    border: 1px solid #f00 !important
                 }
             </style>
         @enderror
@@ -29,7 +29,7 @@
             <p id="input-error">{{ $message }}</p>
             <style>
                 #senha {
-                    box-shadow: 0 0 .3em #f00
+                    border: 1px solid #f00 !important
                 }
             </style>
         @enderror

@@ -15,8 +15,8 @@
                     <h1>Reset de senha</h1>
                 </header>
 
-                <h1>Usuário {{ $exibir->nome }}</h1>
-                
+                <h1>Usuário <b>{{ $exibir->nome }}</b></h1>
+
                 <label for="senha"><p>Senha<span> *</span></p>
                     <div>
                         <input type="password" name="senha" id="senha" placeholder="Complete a senha" value="{{ old('senha') }}" autocomplete="new-password">
@@ -26,7 +26,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #senha {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror
@@ -40,7 +40,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #repete_senha {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror

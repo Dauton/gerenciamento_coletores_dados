@@ -28,17 +28,18 @@
                             <h3>Sites</h3>
                         </div>
                     </a>
-                    <a href="{{ route('turnos') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-business-time"></i>
-                            <h3>Turnos</h3>
-                        </div>
-                    </a>
 
                     <a href="{{ route('avarias') }}">
                         <div class="link">
                             <i class="fa-solid fa-burst"></i>
                             <h3>Avarias</h3>
+                        </div>
+                    </a>
+
+                    <a href="{{ route('turnos') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-business-time"></i>
+                            <h3>Turnos</h3>
                         </div>
                     </a>
                 </div>
