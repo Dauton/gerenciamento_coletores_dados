@@ -11,8 +11,9 @@
 
 :root {
     --primary-color: #0088ff;
-    --secundary-color: #005876;
-    --terciary-color: #00384b;
+    --secondary-color: #005876;
+    --tertiary-color: #00384b;
+    --quaternary-color: #00222e;
 }
 
 * {
@@ -61,7 +62,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, var(--secundary-color), var(--terciary-color));
+    background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color));
     color: #f1f1f1;
 }
 .cabecalho-title {
@@ -119,7 +120,7 @@ h1 {
     top: 0;
     left: 0;
     border-radius: 5px 5px 0 0;
-    background: linear-gradient(to right, var(--secundary-color), var(--terciary-color));
+    background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color));
     color: #fff;
 }
 .container-cabecalho h1 {
@@ -136,20 +137,27 @@ h1 {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    border-radius: 3px;
-    background: var(--secundary-color);
+    border-radius: 5px;
+    background: var(--secondary-color);
     color: #f1f1f1;
+    transition: .2s background;
 }
 .conteudo-center .links-container .link i {
     font-size: 40px;
 }
+.conteudo-center .links-container .link:hover {
+    background: var(--tertiary-color);
+    transition: .2s background;
+}
 .conteudo-center .links-container a:nth-child(odd):hover {
-    transform: rotate(-5deg) scale(1.05);
+    background: var(--tertiary-color);
+    transform: rotate(-5deg) scale(1.07);
     transition: .2s;
 }
 
 .conteudo-center .links-container a:nth-child(even):hover {
-    transform: rotate(5deg) scale(1.05);
+    background: var(--tertiary-color);
+    transform: rotate(5deg) scale(1.07);
     transition: .2s;
 }
 

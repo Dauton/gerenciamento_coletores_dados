@@ -105,4 +105,31 @@ class InputValidationsController extends Controller
             ]
         );
     }
+
+    public static function validationsAvaria(Request $request)
+    {
+        $request->validate(
+            [
+                'avaria' => ['required'],
+                'tipo_avaria' => ['required']
+            ],
+            [
+                'avaria.required' => 'A descrição da avaria deve ser preenchida.',
+                'tipo_avaria.required' => 'O tipo da avaria deve ser preenchido.'
+            ]
+        );
+    }
+
+    public static function validationsTurnos(Request $request)
+    {
+        $request->validate(
+            [
+                'turno'=> ['required']
+            ],
+            [
+                'turno.required' => 'A descrição do turno deve ser preenchida.'
+            ]
+        );
+
+    }
 }

@@ -1,10 +1,6 @@
 .table-container {
     width: 100%;
-    height: 100%;
     padding: 90px 40px 40px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     box-shadow: 0 0 .3em #cdcdcd;
     border-radius: 5px;
@@ -19,7 +15,7 @@ table {
 }
 
 table thead {
-    background: var(--secundary-color);
+    background: var(--secondary-color);
     color: #f1f1f1;
 }
 table tr th,
@@ -30,4 +26,8 @@ table tr td {
 table tbody tr td {
     color: #404040;
     font-size: 12px;
+}
+
+table tr:nth-child(even) {
+    background: #f6f6f6;
 }

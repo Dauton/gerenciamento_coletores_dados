@@ -35,7 +35,7 @@ form label div select {
 }
 form label div input:focus,
 form label div select:focus {
-    outline-color: var(--secundary-color);
+    outline-color: var(--secondary-color);
 }
 form label div i {
     display: flex;

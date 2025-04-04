@@ -20,6 +20,10 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
     Route::get('/update-senha/{id}', [ShowPagesController::class, 'updatePasswordPage'])->name('update-senha');
     Route::get('/sites', [ShowPagesController::class, 'sitesPage'])->name('sites');
     Route::get('/update-site/{id}', [ShowPagesController::class, 'updateSitePage'])->name('update-site');
+    Route::get('/avarias', [ShowPagesController::class, 'avariasPage'])->name('avarias');
+    Route::get('/update-avaria/{id}', [ShowPagesController::class, 'updateAvariaPage'])->name('update-avaria');
+    Route::get('/turnos', [ShowPagesController::class, 'turnosPage'])->name('turnos');
+    Route::get('/update-turno/{id}', [ShowPagesController::class, 'updateTurnoPage'])->name('update-turno');
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -28,6 +32,10 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
     Route::post('/updatePassword/{id}', [PasswordController::class, 'updatePassword'])->name('updatePassword');
     Route::post('/createSite', [CreateController::class, 'createSite'])->name('createSite');
     Route::post('/updateSite/{id}', [UpdateController::class, 'updateSite'])->name('updateSite');
+    Route::post('/createAvaria', [CreateController::class, 'createAvaria'])->name('createAvaria');
+    Route::post('/updateAvaria/{id}', [UpdateController::class, 'updateAvaria'])->name('updateAvaria');
+    Route::post('/createTurno', [CreateController::class, 'createTurno'])->name('createTurno');
+    Route::post('/updateTurno/{id}', [UpdateController::class, 'updateTurno'])->name('update-turno');
 
 });
 

@@ -3,28 +3,36 @@
     margin: 20px 0 0 0;
 }
 button {
-    width: 80px;
     padding: 5px 15px;
-    border: 1px solid var(--secundary-color);
+    border: 1px solid var(--secondary-color);
     border-radius: 2px;
     color: #fff;
-    background: var(--secundary-color);
+    background: var(--secondary-color);
     font-size: 12px;
     cursor: pointer;
 }
 button:hover {
-    background: var(--terciary-color);
-    border: 1px solid var(--terciary-color);
+    background: var(--tertiary-color);
+    border: 1px solid var(--tertiary-color);
 }
 
 #btn-cancelar {
     background: #fff;
-    border: 1px solid var(--terciary-color);
-    color: var(--terciary-color);
+    border: 1px solid var(--tertiary-color);
+    color: var(--tertiary-color);
 }
 #btn-cancelar:hover {
-    background: var(--terciary-color);
+    background: var(--tertiary-color);
     color: #f1f1f1;
+}
+
+#btn-sair {
+    width: 100px;
+    background: var(--tertiary-color);
+}
+#btn-sair:hover {
+    border: none;
+    background: var(--quaternary-color);
 }
 
 #btn-table-red,

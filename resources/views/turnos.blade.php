@@ -5,25 +5,25 @@
     <section class="centro">
         <header class="cabecalho">
             <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Sites</h1>
-            <i class="fa-solid fa-map-location-dot"></i>
+            <i class="fa-solid fa-business-time"></i>
         </header>
         <article class="conteudo">
-            <form method="post" action="createSite">
+            <form method="post" action="createTurno">
                 @csrf
 
                 <header class="container-cabecalho">
-                    <h1>Cadastro de site</h1>
+                    <h1>Cadastro de turno</h1>
                 </header>
 
-                <label for="descricao"><p>Descrição<span> *</span></p>
+                <label for="turno"><p>Turno<span> *</span></p>
                     <div>
-                        <input type="text" name="descricao" id="descricao" placeholder="Complete com o nome do site" value="{{ old('descricao') }}">
-                        <i class="fa-solid fa-map-location-dot"></i>
+                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ old('turno') }}">
+                        <i class="fa-solid fa-business-time"></i>
                     </div>
-                    @error('descricao')
+                    @error('turno')
                         <p id="input-error">{{ $message }}</p>
                         <style>
-                            #descricao {
+                            #turno {
                                 box-shadow: 0 0 .3em #f00
                             }
                         </style>
@@ -40,14 +40,14 @@
             <section class="table-container">
 
                 <header class="container-cabecalho">
-                    <h1>Gerenciamento de sites</h1>
+                    <h1>Gerenciamento de turnos</h1>
                 </header>
 
                 <table>
                     <thead>
                         <tr>
-                            <th>ID site</th>
-                            <th>Descrição</th>
+                            <th>ID turno</th>
+                            <th>Turno</th>
                             <th>Cadastrado por</th>
                             <th>Data cadastro</th>
                             <th>Gerenciar</th>
@@ -57,11 +57,11 @@
                             @foreach ($exibir as $exibe)
                             <tr>
                                 <td>{{ $exibe->id }}</td>
-                                <td>{{ $exibe->descricao }}</td>
+                                <td>{{ $exibe->turno }}</td>
                                 <td>{{ $exibe->created_by }}</td>
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
-                                    <a href="update-site/{{ $exibe->id }}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="update-turno/{{ $exibe->id }}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                     <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>

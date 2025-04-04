@@ -144,6 +144,7 @@
                             <th>Site</th>
                             <th>Perfil</th>
                             <th>Status</th>
+                            <th>Cadastrado em</th>
                             <th>Gerenciar</th>
                         </tr>
                     </thead>
@@ -156,6 +157,7 @@
                                 <td>{{$exibe->site}}</td>
                                 <td>{{$exibe->perfil}}</td>
                                 <td>{{$exibe->status}}</td>
+                                <td>{{date_format($exibe->created_at,'d/m/Y H:i:s')}}</td>
                                 <td>
                                     <a href="update-usuario/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                     <a href=""><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>

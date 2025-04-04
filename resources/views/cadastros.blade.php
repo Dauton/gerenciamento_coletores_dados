@@ -4,7 +4,7 @@
     <section class="centro">
         <header class="cabecalho">
             <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / Cadastros</h1>
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-database"></i>
         </header>
         <article class="conteudo">
             <section class="conteudo-title">
@@ -28,14 +28,14 @@
                             <h3>Sites</h3>
                         </div>
                     </a>
-                    <a href="{{ route('usuarios') }}">
+                    <a href="{{ route('turnos') }}">
                         <div class="link">
                             <i class="fa-solid fa-business-time"></i>
                             <h3>Turnos</h3>
                         </div>
                     </a>
 
-                    <a href="{{ route('usuarios') }}">
+                    <a href="{{ route('avarias') }}">
                         <div class="link">
                             <i class="fa-solid fa-burst"></i>
                             <h3>Avarias</h3>
