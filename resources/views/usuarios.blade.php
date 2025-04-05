@@ -144,7 +144,7 @@
                             <th>Site</th>
                             <th>Perfil</th>
                             <th>Status</th>
-                            <th>último login</th>
+                            <th>Último login</th>
                             <th>Cadastrado em</th>
                             <th>Gerenciar</th>
                         </tr>

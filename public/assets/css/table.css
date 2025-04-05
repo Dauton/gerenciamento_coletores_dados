@@ -31,3 +31,7 @@ table tbody tr td {
 table tr:nth-child(even) {
     background: #f6f6f6;
 }
+table tr th:last-child,
+table tr td:last-child {
+    width: fit-content;
+}
