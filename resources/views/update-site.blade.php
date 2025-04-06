@@ -4,7 +4,7 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Sites</h1>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / <a href='{{ route('sites') }}'>Sites</a> / Ediçao de site</h1></h1>
             <i class="fa-solid fa-users-gear"></i>
         </header>
         <article class="conteudo">
@@ -17,7 +17,7 @@
 
                 <label for="descricao"><p>Descrição<span> *</span></p>
                     <div>
-                        <input type="text" name="descricao" id="nome" placeholder="Complete com o nome" value="{{ $exibir->descricao }}">
+                        <input type="text" name="descricao" id="descricao" placeholder="Complete com a descriçao do site" value="{{ $exibir->descricao }}">
                         <i class="fa-solid fa-id-card"></i>
                     </div>
                     @error('descricao')

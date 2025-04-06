@@ -4,7 +4,7 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Usuários</h1>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / <a href='{{ route('usuarios') }}'>Usuários</a> / Ediçao de usuário</h1></h1>
             <i class="fa-solid fa-users-gear"></i>
         </header>
         <article class="conteudo">

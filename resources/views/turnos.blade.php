@@ -4,7 +4,7 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Sites</h1>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Turnos</h1>
             <i class="fa-solid fa-business-time"></i>
         </header>
         <article class="conteudo">
@@ -24,7 +24,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #turno {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror

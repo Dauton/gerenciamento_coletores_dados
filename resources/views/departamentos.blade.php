@@ -24,7 +24,7 @@
                         <p id="input-error">{{ $message }}</p>
                         <style>
                             #departamento {
-                                box-shadow: 0 0 .3em #f00
+                                border: 1px solid #f00
                             }
                         </style>
                     @enderror

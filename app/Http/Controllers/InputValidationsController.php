@@ -142,7 +142,7 @@ class InputValidationsController extends Controller
                 'departamento' => ['required'],
             ],
             [
-                'departamento.required' => 'A descrição do departamento deve ser preenchido.'
+                'departamento.required' => 'A descrição do departamento deve ser preenchida.'
             ]
         );
     }
