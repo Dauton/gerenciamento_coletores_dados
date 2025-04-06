@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Departamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
@@ -30,7 +31,7 @@ class UpdateController extends Controller
             'perfil' => trim(mb_strtoupper($perfil))
         ]);
 
-        return redirect('/usuarios')->with('alertSuccess', 'Usuário editado com sucesso.');
+        return redirect('usuarios')->with('alertSuccess', 'Usuário editado com sucesso.');
 
     }
 
@@ -46,7 +47,7 @@ class UpdateController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        return redirect('/sites')->with('alertSuccess', 'Site editado com sucesso.');
+        return redirect('sites')->with('alertSuccess', 'Site editado com sucesso.');
     }
 
     public function updateAvaria(Request $request, $id)
@@ -63,7 +64,7 @@ class UpdateController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        return redirect('/avarias')->with('alertSuccess', 'Avaria editada com sucesso.');
+        return redirect('avarias')->with('alertSuccess', 'Avaria editada com sucesso.');
     }
 
     public function updateTurno(Request $request, $id)
@@ -75,11 +76,28 @@ class UpdateController extends Controller
 
         Turno::where('id', $id)->update(
             [
-                'turno' => $turno,
+                'turno' => trim(mb_strtoupper($turno)),
                 'updated_at' => $updated_at
             ]
         );
 
-        return redirect('/turnos')->with('alertSuccess', 'Turno editado com sucesso.');
+        return redirect('turnos')->with('alertSuccess', 'Turno editado com sucesso.');
+    }
+
+    public function updateDepartamento(Request $request, $id)
+    {
+        InputValidationsController::validationsDepartamento($request);
+
+        $departamento = $request->input('departamento');
+        $updated_at = date('Y-m-d H:i:s');
+
+        Departamento::where('id', $id)->update(
+            [
+                'departamento' => trim(mb_strtoupper($departamento)),
+                'updated_at' => $updated_at
+            ]
+        );
+
+        return redirect('departamentos')->with('alertSuccess', 'Departamento editado com sucesso.');    
     }
 }

@@ -81,7 +81,6 @@
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
                                     <a href="update-avaria/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
-                                    <a href="deleteAvaria/{{$exibe->id}}"><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
                                 </td>
                             </tr>
                             @endforeach

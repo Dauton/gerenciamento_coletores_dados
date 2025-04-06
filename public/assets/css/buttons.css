@@ -26,6 +26,15 @@ button:hover {
     color: #f1f1f1;
 }
 
+#btn-red {
+    background: #ff0000;
+    border: 1px solid #dc0000
+}
+#btn-red:hover {
+    background: #960000;
+    border: 1px solid #960000;
+}
+
 #btn-sair {
     width: 100px;
     background: var(--tertiary-color);
@@ -34,17 +43,18 @@ button:hover {
     background: var(--quaternary-color);
 }
 
-#btn-table-red,
+#btn-table-yellow,
 #btn-table-blue {
     font-size: 25px;
     margin: 0 5px;
 }
-#btn-table-red:hover,
+#btn-table-yellow:hover,
 #btn-table-blue:hover {
     filter: brightness(70%);
 }
-#btn-table-red {
-    color: #f00;
+#btn-table-yellow {
+    font-size: 22px;
+    color: #daa520;
 }
 #btn-table-blue {
     color: var(--primary-color);
@@ -68,4 +78,21 @@ button:hover {
     align-items: center;
     justify-content: center;
     font-size: 20px;
+}
+.float-button-red {
+    background: #dc0000;
+    border: 1px solid #dc0000;
+}
+.float-button-red:hover {
+    background: #960000;
+    border: 1px solid #960000;
+}
+
+.alert-confirmacao .container-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.alert-confirmacao .container-buttons button {
+    width: 110px;
 }

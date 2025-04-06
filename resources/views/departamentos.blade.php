@@ -4,26 +4,26 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Sites</h1>
-            <i class="fa-solid fa-business-time"></i>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Departamentos</h1>
+            <i class="fa-solid fa-map-location-dot"></i>
         </header>
         <article class="conteudo">
-            <form method="post" action="createTurno">
+            <form method="post" action="createDepartamento">
                 @csrf
 
                 <header class="container-cabecalho">
-                    <h1>Cadastro de turno</h1>
+                    <h1>Cadastro de departamento</h1>
                 </header>
 
-                <label for="turno"><p>Turno<span> *</span></p>
+                <label for="departamento"><p>Departamento<span> *</span></p>
                     <div>
-                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ old('turno') }}">
-                        <i class="fa-solid fa-business-time"></i>
+                        <input type="text" name="departamento" id="departamento" placeholder="Complete com o nome do departamento" value="{{ old('departamento') }}">
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    @error('turno')
+                    @error('departamento')
                         <p id="input-error">{{ $message }}</p>
                         <style>
-                            #turno {
+                            #departamento {
                                 box-shadow: 0 0 .3em #f00
                             }
                         </style>
@@ -40,14 +40,14 @@
             <section class="table-container">
 
                 <header class="container-cabecalho">
-                    <h1>Gerenciamento de turnos</h1>
+                    <h1>Gerenciamento de departamentos</h1>
                 </header>
 
                 <table>
                     <thead>
                         <tr>
-                            <th>ID turno</th>
-                            <th>Turno</th>
+                            <th>ID site</th>
+                            <th>Departamento</th>
                             <th>Cadastrado por</th>
                             <th>Data cadastro</th>
                             <th>Gerenciar</th>
@@ -57,11 +57,11 @@
                             @foreach ($exibir as $exibe)
                             <tr>
                                 <td>{{ $exibe->id }}</td>
-                                <td>{{ $exibe->turno }}</td>
+                                <td>{{ $exibe->departamento }}</td>
                                 <td>{{ $exibe->created_by }}</td>
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
-                                    <a href="update-turno/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="update-departamento/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                 </td>
                             </tr>
                             @endforeach

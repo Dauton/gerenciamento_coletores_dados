@@ -4,26 +4,26 @@
     @include('layouts.menu-lateral')
     <section class="centro">
         <header class="cabecalho">
-            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Sites</h1>
+            <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href="{{ route('cadastros') }}">Cadastros</a> / Departamentos</h1>
             <i class="fa-solid fa-users-gear"></i>
         </header>
         <article class="conteudo">
-            <form method="post" action="/updateTurno/{{ $exibir->id }}">
+            <form method="post" action="/updateDepartamento/{{ $exibir->id }}">
                 @csrf
 
                 <header class="container-cabecalho">
-                    <h1>Edição de turno</h1>
+                    <h1>Edição de departamento</h1>
                 </header>
 
-                <label for="turno"><p>Descrição<span> *</span></p>
+                <label for="departamento"><p>Departamento<span> *</span></p>
                     <div>
-                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ $exibir->turno }}">
+                        <input type="text" name="departamento" id="departamento" placeholder="Complete com o departamento" value="{{ $exibir->departamento }}">
                         <i class="fa-solid fa-id-card"></i>
                     </div>
-                    @error('turno')
+                    @error('departamento')
                         <p id="input-error">{{ $message }}</p>
                         <style>
-                            #turno {
+                            #departamento {
                                 border: 1px solid #f00
                             }
                         </style>
@@ -32,7 +32,7 @@
 
                 <div class="container-buttons">
                     <button type="submit">Submeter</button>
-                    <a href="{{ route('turnos')}}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+                    <a href="{{ route('departamentos')}}"><button type="button" id="btn-cancelar">Cancelar</button></a>
                 </div>
 
             </form>
@@ -44,6 +44,6 @@
         <a><button type="button" id="float-button" class="float-button-red"><i class="fa-solid fa-trash"></i></button></a>
     </div>
     @section('executa-confirmacao')
-        <a href="/deleteTurno/{{ $exibir->id }}"><button type="button" id="btn-red">Excluir</button></a>
+        <a href="/deleteDepartamento/{{ $exibir->id }}"><button type="button" id="btn-red">Excluir</button></a>
     @endsection
 @endsection

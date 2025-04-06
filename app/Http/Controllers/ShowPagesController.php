@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Departamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
@@ -60,6 +61,13 @@ class ShowPagesController extends Controller
         return view('turnos', compact('exibir'));
     }
 
+    // DEPARTAMENTOS PAGE
+    public function departamentosPage()
+    {
+        $exibir = Departamento::all();
+        return view('departamentos', compact('exibir'));
+    }
+
 
     // _________________________________________________________________________________________________________________
 
@@ -99,4 +107,11 @@ class ShowPagesController extends Controller
         $exibir = Turno::where('id', $id)->first();
         return view('update-turno', compact('exibir'));
     }
+
+        // UPDATE DEPARTAMENTO PAGE
+        public function updateDepartamentoPage($id)
+        {
+            $exibir = Departamento::where('id', $id)->first();
+            return view('update-departamento', compact('exibir'));
+        }
 }

@@ -29,6 +29,13 @@
                         </div>
                     </a>
 
+                    <a href="{{ route('departamentos') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <h3>Departamentos</h3>
+                        </div>
+                    </a>
+
                     <a href="{{ route('avarias') }}">
                         <div class="link">
                             <i class="fa-solid fa-burst"></i>

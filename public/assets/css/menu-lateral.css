@@ -1,6 +1,7 @@
 .menu-lateral {
     width: 230px;
     height: 100%;
+    margin: 0 10px 0 0;
     padding: 10px;
     display: flex;
     flex-direction: column;

@@ -162,7 +162,7 @@
                                 <td>{{ \Carbon\Carbon::parse($exibe->created_at)->format('d/m/Y -    H:i') }}</td>
                                 <td>
                                     <a href="update-usuario/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
-                                    <a href="deleteUser/{{$exibe->id}}"><i class="fa-solid fa-square-minus" id="btn-table-red"></i></a>
+                                    <a href="update-senha/{{$exibe->id}}"><i class="fa-solid fa-key" id="btn-table-yellow"></i></a>
                                 </td>
                             </tr>
                         @endforeach

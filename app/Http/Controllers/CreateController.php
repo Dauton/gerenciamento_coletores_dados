@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Departamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
@@ -85,10 +86,26 @@ class CreateController extends Controller
         $created_by = session('usuario.nome');
 
         Turno::insert([
-            'turno' => $turno,
+            'turno' => trim(mb_strtoupper($turno)),
             'created_by' => $created_by
         ]);
 
         return redirect('/turnos')->with('alertSuccess', 'Turno cadastrado com sucesso.');
+    }
+
+    public function createDepartamento(Request $request)
+    {
+
+        InputValidationsController::validationsDepartamento($request);
+
+        $departamento = $request->input('departamento');
+        $created_by = session('usuario.nome');
+
+        Departamento::insert([
+            'departamento' => trim(mb_strtoupper($departamento)),
+            'created_by' => $created_by
+        ]);
+
+        return redirect('departamentos')->with('alertSuccess', 'Departamento cadastrado com sucesso.');
     }
 }

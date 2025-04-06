@@ -132,6 +132,18 @@ class InputValidationsController extends Controller
                 'turno.required' => 'A descrição do turno deve ser preenchida.'
             ]
         );
+    }
 
+    // CREATE AND UPDATE DEPARTAMENTOS
+    public static function validationsDepartamento(Request $request)
+    {
+        $request->validate(
+            [
+                'departamento' => ['required'],
+            ],
+            [
+                'departamento.required' => 'A descrição do departamento deve ser preenchido.'
+            ]
+        );
     }
 }
