@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Avaria;
 use App\Models\Departamento;
+use App\Models\Equipamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UpdateController extends Controller
 {
+
+    // UPDATE USUÁRIO
     public function updateUser(Request $request, $id)
     {
 
@@ -35,6 +39,7 @@ class UpdateController extends Controller
 
     }
 
+    // UPDATE SITE
     public function updateSite(Request $request, $id)
     {
 
@@ -50,6 +55,7 @@ class UpdateController extends Controller
         return redirect('sites')->with('alertSuccess', 'Site editado com sucesso.');
     }
 
+    // UPDATE AVARIA
     public function updateAvaria(Request $request, $id)
     {
 
@@ -67,6 +73,7 @@ class UpdateController extends Controller
         return redirect('avarias')->with('alertSuccess', 'Avaria editada com sucesso.');
     }
 
+    // UPDATE TURNO
     public function updateTurno(Request $request, $id)
     {
         InputValidationsController::validationsTurnos($request);
@@ -74,16 +81,15 @@ class UpdateController extends Controller
         $turno = $request->input('turno');
         $updated_at = date('Y-m-d H:i:s');
 
-        Turno::where('id', $id)->update(
-            [
+        Turno::where('id', $id)->update([
                 'turno' => trim(mb_strtoupper($turno)),
                 'updated_at' => $updated_at
-            ]
-        );
+            ]);
 
         return redirect('turnos')->with('alertSuccess', 'Turno editado com sucesso.');
     }
 
+    // UPDATE DEPARTAMENTO
     public function updateDepartamento(Request $request, $id)
     {
         InputValidationsController::validationsDepartamento($request);
@@ -91,13 +97,37 @@ class UpdateController extends Controller
         $departamento = $request->input('departamento');
         $updated_at = date('Y-m-d H:i:s');
 
-        Departamento::where('id', $id)->update(
-            [
-                'departamento' => trim(mb_strtoupper($departamento)),
-                'updated_at' => $updated_at
-            ]
-        );
+        Departamento::where('id', $id)->update([
+            'departamento' => trim(mb_strtoupper($departamento)),
+            'updated_at' => $updated_at
+        ]);
 
-        return redirect('departamentos')->with('alertSuccess', 'Departamento editado com sucesso.');    
+        return redirect('departamentos')->with('alertSuccess', 'Departamento editado com sucesso.');
+    }
+
+    // UPDATE EQUIPAMENTO
+    public function updateEquipamento(Request $request, $id)
+    {
+        InputValidationsController::validationsEquipamento($request);
+
+        $marca = $request->input('marca');
+        $modelo = $request->input('modelo');
+        $serial = $request->input('serial');
+        $patrimonio = $request->input('patrimonio');
+        $site_equipamento = $request->input('site_equipamento');
+        $status = $request->input('status');
+        $updated_at = now();
+
+        Equipamento::where('id', $id)->update([
+            'marca' => trim(mb_strtoupper($marca)),
+            'modelo' => trim(mb_strtoupper($modelo)),
+            'serial' => trim(mb_strtoupper($serial)),
+            'patrimonio' => trim(mb_strtoupper($patrimonio)),
+            'site_equipamento' => trim(mb_strtoupper($site_equipamento)),
+            'status' => trim(mb_strtoupper($status)),
+            'updated_at' => $updated_at
+        ]);
+
+        return redirect('equipamentos')->with('alertSuccess', 'Equipamento editado com sucesso.');
     }
 }

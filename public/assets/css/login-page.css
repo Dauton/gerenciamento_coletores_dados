@@ -26,8 +26,11 @@
 #login-form label {
     width: 100%;
 }
+#login-form label div {
+    background: #eaf5ff;
+}
 #login-form label input {
-    padding: 10px 10px 10px 30px;
+    padding: 8px;
     border: none;
     background: #eaf5ff;
 }

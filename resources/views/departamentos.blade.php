@@ -17,8 +17,8 @@
 
                 <label for="departamento"><p>Departamento<span> *</span></p>
                     <div>
+                        <i class="fa-solid fa-briefcase"></i>
                         <input type="text" name="departamento" id="departamento" placeholder="Complete com o nome do departamento" value="{{ old('departamento') }}">
-                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
                     @error('departamento')
                         <p id="input-error">{{ $message }}</p>

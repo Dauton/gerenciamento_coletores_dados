@@ -17,8 +17,8 @@
 
                 <label for="turno"><p>Descrição<span> *</span></p>
                     <div>
-                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ $exibir->turno }}">
                         <i class="fa-solid fa-id-card"></i>
+                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ $exibir->turno }}">
                     </div>
                     @error('turno')
                         <p id="input-error">{{ $message }}</p>

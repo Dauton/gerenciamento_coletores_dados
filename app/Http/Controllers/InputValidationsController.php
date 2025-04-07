@@ -146,4 +146,27 @@ class InputValidationsController extends Controller
             ]
         );
     }
+
+    // CREATE AND UPDATE EQUIPANENTOS
+    public static function validationsEquipamento(Request $request)
+    {
+        $request->validate(
+            [
+                'marca' => ['required'],
+                'modelo' => ['required'],
+                'serial' => ['required'],
+                'patrimonio' => ['required'],
+                'site_equipamento' => ['required'],
+                'status' => ['required']
+            ],
+            [
+                'marca.required' => 'A marca deve ser preenchida.',
+                'modelo.required' => 'O modelo deve ser preenchido.',
+                'serial.required' => 'O serial deve ser preenchido.',
+                'patrimonio.required' => 'O patrimonio deve ser informado.',
+                'site_equipamento.required' => 'O site do equipamento deve ser preenchido.',
+                'status.required' => 'O status deve ser preenchido.',
+            ]
+        );
+    }
 }

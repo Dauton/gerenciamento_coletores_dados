@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Avaria;
 use App\Models\Departamento;
+use App\Models\Equipamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
@@ -12,7 +13,7 @@ use Illuminate\Http\Request;
 class CreateController extends Controller
 {
 
-    // CRIAÇÃO DE USUÁRIO
+    // CADASTRO DE USUÁRIO
     public function createUser(Request $request)
     {
 
@@ -42,6 +43,7 @@ class CreateController extends Controller
 
     }
 
+    // CADASTRO DE SITE
     public function createSite(Request $request)
     {
 
@@ -55,10 +57,11 @@ class CreateController extends Controller
             'created_by' => $created_by
         ]);
 
-        return redirect('/sites')->with('alertSuccess', 'Site cadastrado com sucesso.');
+        return redirect('sites')->with('alertSuccess', 'Site cadastrado com sucesso.');
 
     }
 
+    // CADASTRO DE AVARIA
     public function createAvaria(Request $request)
     {
 
@@ -74,9 +77,10 @@ class CreateController extends Controller
             'created_by' => $created_by
         ]);
 
-        return redirect('/avarias')->with('alertSuccess', 'Avaria cadastrada com sucesso.');
+        return redirect('avarias')->with('alertSuccess', 'Avaria cadastrada com sucesso.');
     }
 
+    // CADASTRO DE TURNO
     public function createTurno(Request $request)
     {
 
@@ -90,9 +94,10 @@ class CreateController extends Controller
             'created_by' => $created_by
         ]);
 
-        return redirect('/turnos')->with('alertSuccess', 'Turno cadastrado com sucesso.');
+        return redirect('turnos')->with('alertSuccess', 'Turno cadastrado com sucesso.');
     }
 
+    // CADASTRO DE DEPARTAMENTO
     public function createDepartamento(Request $request)
     {
 
@@ -107,5 +112,34 @@ class CreateController extends Controller
         ]);
 
         return redirect('departamentos')->with('alertSuccess', 'Departamento cadastrado com sucesso.');
+    }
+
+    // CADASTRO DE EQUIPAMENTO
+    public function createEquipamento(Request $request)
+    {
+
+        InputValidationsController::validationsEquipamento($request);
+
+        $marca = $request->input('marca');
+        $modelo = $request->input('modelo');
+        $serial = $request->input('serial');
+        $patrimonio = $request->input('patrimonio');
+        $site_equipamento = $request->input('site_equipamento');
+        $status = $request->input('status');
+        $situacao = 'DISPONÍVEL';
+        $created_by = session('usuario.nome');
+
+        Equipamento::insert([
+            'marca' => trim(mb_strtoupper($marca)),
+            'modelo' => trim(mb_strtoupper($modelo)),
+            'serial' => trim(mb_strtoupper($serial)),
+            'patrimonio' => trim(mb_strtoupper($patrimonio)),
+            'site_equipamento' => trim(mb_strtoupper($site_equipamento)),
+            'status' => trim(mb_strtoupper($status)),
+            'situacao' => $situacao,
+            'created_by' => $created_by
+        ]);
+
+        return redirect('equipamentos')->with('alertSuccess', 'Equipamento cadastrado com sucesso.');
     }
 }

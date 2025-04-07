@@ -17,8 +17,8 @@
 
                 <label for="avaria"><p>Avaria<span> *</span></p>
                     <div>
+                        <i class="fa-solid fa-burst"></i>
                         <input type="text" name="avaria" id="avaria" placeholder="Complete com o nome da avaria" value="{{ $exibir->avaria }}">
-                        <i class="fa-solid fa-id-card"></i>
                     </div>
                     @error('avaria')
                         <p id="input-error">{{ $message }}</p>
@@ -30,14 +30,14 @@
                     @enderror
                 </label>
 
-                <label for="tipo_avaria"><p>Avaria<span> *</span></p>
+                <label for="tipo_avaria"><p>Tipo avaria<span> *</span></p>
                     <div>
+                        <i class="fa-solid fa-burst"></i>
                         <select name="tipo_avaria" id="tipo_avaria">
                             <option value="{{ $exibir->tipo_avaria }}">{{ $exibir->tipo_avaria }}</option>
                             <option value="Sistêmico (Software)">Sistêmico (Software)</option>
                             <option value="Físico (Hardware)">Físico (Hardware)</option>
                         </select>
-                        <i class="fa-solid fa-id-card"></i>
                     </div>
                     @error('tipo_avaria')
                         <p id="input-error">{{ $message }}</p>

@@ -24,25 +24,39 @@ form label div {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    overflow: hidden;
 }
 form label div input,
 form label div select {
     width: 100%;
-    margin: 3px 0 0 0;
-    padding: 12px 12px 12px 30px;
-    border: 1px solid #cdcdcd;
-    border-radius: 3px;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
 }
 form label div input:focus,
 form label div select:focus {
-    outline-color: var(--secondary-color);
+    outline: none;
 }
 form label div i {
+    width: 40px;
+    min-width: 40px;
+    padding: 10px 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     font-size: 13px;
-    position: absolute;
-    left: 10px;
-    color: #404040;
+    color: #f1f1f1;
+    text-align: center;
+    background: var(--secondary-color);
+}
+.selection, .select2-selection, .select2-selection__rendered {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+}
+.select2-selection__rendered {
+    height: 100%;
 }

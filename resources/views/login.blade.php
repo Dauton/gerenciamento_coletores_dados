@@ -23,8 +23,8 @@
         </label>
         <label for='senha'>Senha
             <div>
-                <input type="password" name="senha" id="senha" placeholder="Sua senha" value="{{ old('senha') }}">
                 <i class="fa-solid fa-lock"></i>
+                <input type="password" name="senha" id="senha" placeholder="Sua senha" value="{{ old('senha') }}">
             </div>
             @error('senha')
                 <p id="input-error">{{ $message }}</p>

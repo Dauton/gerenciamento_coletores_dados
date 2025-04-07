@@ -17,8 +17,8 @@
 
                 <label for="descricao"><p>Descrição<span> *</span></p>
                     <div>
-                        <input type="text" name="descricao" id="descricao" placeholder="Complete com o nome do site" value="{{ old('descricao') }}">
                         <i class="fa-solid fa-map-location-dot"></i>
+                        <input type="text" name="descricao" id="descricao" placeholder="Complete com o nome do site" value="{{ old('descricao') }}">
                     </div>
                     @error('descricao')
                         <p id="input-error">{{ $message }}</p>

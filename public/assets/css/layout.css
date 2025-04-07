@@ -1,10 +1,10 @@
-@import url(menu-lateral.css); 
-@import url(login-page.css); 
+@import url(menu-lateral.css);
+@import url(login-page.css);
 
 @import url(form.css);
 @import url(table.css);
 
-@import url(buttons.css); 
+@import url(buttons.css);
 @import url(alerts.css);
 
 @import url(mobile/layout-mobile.css);
@@ -148,6 +148,7 @@ h1 {
     background: var(--secondary-color);
     color: #f1f1f1;
     font-size: 14px;
+    text-align: center;
     transition: .2s background;
 }
 .conteudo-center .links-container .link i {

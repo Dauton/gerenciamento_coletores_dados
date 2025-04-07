@@ -1,3 +1,10 @@
+// BIBLIOTECA SELECT2
+$(window).on('load', function() {
+    $('select').select2(); // Inicializa após o carregamento completo da página
+});
+
+
+
 // MENSAGEM DE ALERTA SOME APÓS 5 SEGUNDOS
 setTimeout(() => {
     let p = document.getElementById("alert-result");
@@ -7,6 +14,7 @@ setTimeout(() => {
         p.style.display = "none";
     }, 3000);
 }, 5000);
+
 
 // MENU LATERAL
 // AO CLICAR NO BOTÃO HAMBURGUER O MENU LATERAL SERÁ EXIBIDO, JUNTO COM O FUNDO ESCURO...

@@ -19,8 +19,8 @@
 
                 <label for="senha"><p>Senha<span> *</span></p>
                     <div>
-                        <input type="password" name="senha" id="senha" placeholder="Complete a senha" value="{{ old('senha') }}" autocomplete="new-password">
                         <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="senha" id="senha" placeholder="Complete a senha" value="{{ old('senha') }}" autocomplete="new-password">
                     </div>
                     @error('senha')
                         <p id="input-error">{{ $message }}</p>
@@ -33,8 +33,8 @@
                 </label>
                 <label for="repete_senha"><p>Repita a senha<span> *</span></p>
                     <div>
-                        <input type="password" name="repete_senha" id="repete_senha" placeholder="Repita a senha" value="{{ old('repete_senha') }}">
                         <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="repete_senha" id="repete_senha" placeholder="Repita a senha" value="{{ old('repete_senha') }}">
                     </div>
                     @error('repete_senha')
                         <p id="input-error">{{ $message }}</p>

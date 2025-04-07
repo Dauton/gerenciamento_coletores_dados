@@ -17,8 +17,8 @@
 
                 <label for="turno"><p>Turno<span> *</span></p>
                     <div>
-                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ old('turno') }}">
                         <i class="fa-solid fa-business-time"></i>
+                        <input type="text" name="turno" id="turno" placeholder="Complete com a descrição do turno" value="{{ old('turno') }}">
                     </div>
                     @error('turno')
                         <p id="input-error">{{ $message }}</p>

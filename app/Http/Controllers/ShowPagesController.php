@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Avaria;
 use App\Models\Departamento;
+use App\Models\Equipamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
@@ -39,12 +40,12 @@ class ShowPagesController extends Controller
     }
 
     // SITES PAGE
-    public function sitesPage() {
+    public function sitesPage()
+    {
 
         $exibir = Site::all();
 
         return view('sites', compact('exibir'));
-
     }
 
     // AVARIAS PAGE
@@ -68,6 +69,20 @@ class ShowPagesController extends Controller
         return view('departamentos', compact('exibir'));
     }
 
+    // EQUIPAMENTOS PAGES
+    public function equipamentosPage()
+    {
+        $exibir = Equipamento::all();
+        return view('equipamentos', compact('exibir'));
+    }
+
+    // ENTREGA DE EQUIPAMENTO PAGE
+    public function entregaEquipamentoPage()
+    {
+        $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
+        $turnos = Turno::all();
+        return view('entrega-equipamento', compact('equipamentos', 'turnos'));
+    }
 
     // _________________________________________________________________________________________________________________
 
@@ -79,7 +94,7 @@ class ShowPagesController extends Controller
         $exibir = Usuario::where('id', $id)->first();
         return view('update-senha', compact('exibir'));
     }
-    
+
     // UPDATE USER PAGE
     public function updateUsuarioPage($id)
     {
@@ -108,10 +123,18 @@ class ShowPagesController extends Controller
         return view('update-turno', compact('exibir'));
     }
 
-        // UPDATE DEPARTAMENTO PAGE
-        public function updateDepartamentoPage($id)
-        {
-            $exibir = Departamento::where('id', $id)->first();
-            return view('update-departamento', compact('exibir'));
-        }
+    // UPDATE DEPARTAMENTO PAGE
+    public function updateDepartamentoPage($id)
+    {
+        $exibir = Departamento::where('id', $id)->first();
+        return view('update-departamento', compact('exibir'));
+    }
+
+    // UPDATE EQUIPAMENTO PAGE
+    public function updateEquipamentoPage($id)
+    {
+        $exibir = Equipamento::where('id', $id)->first();
+        $sites = Site::all();
+        return view('update-equipamento', compact('exibir', 'sites'));
+    }
 }

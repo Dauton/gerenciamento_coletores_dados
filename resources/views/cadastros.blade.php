@@ -49,6 +49,13 @@
                             <h3>Turnos</h3>
                         </div>
                     </a>
+
+                    <a href="{{ route('equipamentos') }}">
+                        <div class="link">
+                            <i class="fa-solid fa-microchip"></i>
+                            <h3>Equipamentos</h3>
+                        </div>
+                    </a>
                 </div>
             </section>
         </article>
