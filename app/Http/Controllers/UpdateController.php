@@ -18,7 +18,7 @@ class UpdateController extends Controller
     // UPDATE USUÁRIO
     public function updateUser(Request $request, $id)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsUpdateUser($request);
 
         $nome = $request->input('nome');
@@ -38,11 +38,10 @@ class UpdateController extends Controller
         return redirect('usuarios')->with('alertSuccess', 'Usuário editado com sucesso.');
 
     }
-
     // UPDATE SITE
     public function updateSite(Request $request, $id)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsSite($request);
 
         $descricao = $request->input('descricao');
@@ -58,7 +57,7 @@ class UpdateController extends Controller
     // UPDATE AVARIA
     public function updateAvaria(Request $request, $id)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsAvaria($request);
 
         $avaria = $request->input('avaria');
@@ -76,6 +75,7 @@ class UpdateController extends Controller
     // UPDATE TURNO
     public function updateTurno(Request $request, $id)
     {
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsTurnos($request);
 
         $turno = $request->input('turno');
@@ -92,6 +92,7 @@ class UpdateController extends Controller
     // UPDATE DEPARTAMENTO
     public function updateDepartamento(Request $request, $id)
     {
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsDepartamento($request);
 
         $departamento = $request->input('departamento');
@@ -108,6 +109,7 @@ class UpdateController extends Controller
     // UPDATE EQUIPAMENTO
     public function updateEquipamento(Request $request, $id)
     {
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsEquipamento($request);
 
         $marca = $request->input('marca');

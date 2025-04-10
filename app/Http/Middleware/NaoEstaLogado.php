@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsLoggedIn
+class NaoEstaLogado
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class IsLoggedIn
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // BLOQUEIA ACESSO SE ESTIVER LOGADO
-        if(session('usuario')) {
-            return redirect('/homepage');
+        // BLOQUEIA ACESSO SE NÃO ESTIVER LOGADO
+        if(!session('usuario')) {
+            return redirect('/')->with('loginError', 'Realize o login para acessar o sistema.');
         }
 
         return $next($request);

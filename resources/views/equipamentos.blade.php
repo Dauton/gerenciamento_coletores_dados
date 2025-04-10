@@ -72,7 +72,7 @@
                     @enderror
                 </label>
             </label>
-            <label for="site_equipamento"><p>Site do equipanento<span> *</span></p>
+            <label for="site_equipamento"><p>Site do equipamento<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-map-location-dot"></i>
                     <select name="site_equipamento" id="site_equipamento">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipamento;
 use Illuminate\Http\Request;
 
 class InputValidationsController extends Controller
@@ -36,12 +37,12 @@ class InputValidationsController extends Controller
                 'repete_senha' => ['required', 'same:senha']
             ],
             [
-                'nome.required' => 'O nome deve ser preenchido.',
-                'usuario.required' => 'O usuário deve ser preenchido.',
-                'email.required' => 'O e-mail deve ser preenchido.',
+                'nome.required' => 'O nome deve ser informado.',
+                'usuario.required' => 'O usuário deve ser informado.',
+                'email.required' => 'O e-mail deve ser informado.',
                 'email.email' => 'O e-mail informado não é válido.',
-                'site.required' => 'O site deve ser preenchido.',
-                'perfil.required' => 'O perfil deve ser preenchido.',
+                'site.required' => 'O site deve ser informado.',
+                'perfil.required' => 'O perfil deve ser informado.',
                 'senha.required' => 'A senha deve ser informada.',
                 'senha.min' => 'A senha deve possuir pelo menos :min caracteres',
                 'senha.regex' => 'A senha deve possuir pelo menos uma letra maiúscula, uma letra minuscula, um número e um caractere especial.',
@@ -63,12 +64,12 @@ class InputValidationsController extends Controller
                 'perfil' => ['required']
             ],
             [
-                'nome.required' => 'O nome deve ser preenchido.',
-                'usuario.required' => 'O usuário deve ser preenchido.',
-                'email.required' => 'O e-mail deve ser preenchido.',
+                'nome.required' => 'O nome deve ser informado.',
+                'usuario.required' => 'O usuário deve ser informado.',
+                'email.required' => 'O e-mail deve ser informado.',
                 'email.email' => 'O e-mail informado não é válido.',
-                'site.required' => 'O site deve ser preenchido.',
-                'perfil.required' => 'O perfil deve ser preenchido.'
+                'site.required' => 'O site deve ser informado.',
+                'perfil.required' => 'O perfil deve ser informado.'
             ]
         );
     }
@@ -101,7 +102,7 @@ class InputValidationsController extends Controller
                 'descricao' => ['required']
             ],
             [
-                'descricao.required' => 'A descrição deve ser preenchida.'
+                'descricao.required' => 'A descrição deve ser informada.'
             ]
         );
     }
@@ -115,8 +116,8 @@ class InputValidationsController extends Controller
                 'tipo_avaria' => ['required']
             ],
             [
-                'avaria.required' => 'A descrição da avaria deve ser preenchida.',
-                'tipo_avaria.required' => 'O tipo da avaria deve ser preenchido.'
+                'avaria.required' => 'A descrição da avaria deve ser informada.',
+                'tipo_avaria.required' => 'O tipo da avaria deve ser informado.'
             ]
         );
     }
@@ -129,7 +130,7 @@ class InputValidationsController extends Controller
                 'turno'=> ['required']
             ],
             [
-                'turno.required' => 'A descrição do turno deve ser preenchida.'
+                'turno.required' => 'A descrição do turno deve ser informada.'
             ]
         );
     }
@@ -142,12 +143,12 @@ class InputValidationsController extends Controller
                 'departamento' => ['required'],
             ],
             [
-                'departamento.required' => 'A descrição do departamento deve ser preenchida.'
+                'departamento.required' => 'A descrição do departamento deve ser informada.'
             ]
         );
     }
 
-    // CREATE AND UPDATE EQUIPANENTOS
+    // CREATE AND UPDATE EQUIPAMENTOS
     public static function validationsEquipamento(Request $request)
     {
         $request->validate(
@@ -160,13 +161,54 @@ class InputValidationsController extends Controller
                 'status' => ['required']
             ],
             [
-                'marca.required' => 'A marca deve ser preenchida.',
-                'modelo.required' => 'O modelo deve ser preenchido.',
-                'serial.required' => 'O serial deve ser preenchido.',
+                'marca.required' => 'A marca deve ser informada.',
+                'modelo.required' => 'O modelo deve ser informado.',
+                'serial.required' => 'O serial deve ser informado.',
                 'patrimonio.required' => 'O patrimonio deve ser informado.',
-                'site_equipamento.required' => 'O site do equipamento deve ser preenchido.',
-                'status.required' => 'O status deve ser preenchido.',
+                'site_equipamento.required' => 'O site do equipamento deve ser informado.',
+                'status.required' => 'O status deve ser informado.',
             ]
         );
+    }
+
+    public static function validationsEntregaEquipamento(Request $request)
+    {
+        $request->validate(
+            [
+                'equipamento' => ['required'],
+                'colaborador' => ['required'],
+                'turno' => ['required']
+            ],
+            [
+                'equipamento.required' => 'O equipamento a ser entregue deve ser informado.',
+                'colaborador' => 'O dado do colaborador deve ser informado.',
+                'turno' => 'O turno deve ser informado.'
+            ]
+        );
+    }
+
+    public static function validationsDevolveEquipamento(Request $request)
+    {
+        $request->validate(
+            [
+                'ha_avaria' => ['required'],
+            ],
+            [
+                'ha_avaria' => 'Deve ser informado se houve não avaria no equipamento.',
+            ]
+        );
+        if($request->input('ha_avaria') === 'SIM') {
+            $request->validate(
+                [
+                    'avaria' => ['required'],
+                    'foto_avaria' => ['required', 'extensions:png,jpg,jpeg']
+                ],
+                [
+                    'avaria' => 'A descrição da avaria deve ser informada.',
+                    'foto_avaria' => 'A foto da avaria deve ser anexada.',
+                    'foto_avaria.extensions' => 'O formato de imagem anxado é inválido ou não permitido.'
+                ]
+            );
+        }
     }
 }

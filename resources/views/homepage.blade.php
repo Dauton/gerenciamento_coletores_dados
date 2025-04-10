@@ -1,37 +1,121 @@
 @extends('layouts.content')
 
 @section('content')
-    @include('layouts.menu-lateral')
-    <section class="centro">
-        <header class="cabecalho">
-            <h1 class="cabecalho-title">Homepage / </h1>
-            <i class="fa-solid fa-house"></i>
-        </header>
-        <article class="conteudo">
-            <section class="conteudo-title">
-                <h1>Entrega / Devolução</h1>
-            </section>
-            <section class="conteudo-center">
-                <div class="links-container">
-                    <header class="container-cabecalho">
-                        <h1>Selecione o que deseja realizar</h1>
-                    </header>
-                    <a href="{{ route('entrega-equipamento') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-arrow-right"></i>
-                            <h3>Entregar equipamento</h3>
-                        </div>
-                    </a>
+@include('layouts.menu-lateral')
+<section class="centro">
+    <header class="cabecalho">
+        <h1 class="cabecalho-title">Homepage</h1>
+        <i class="fa-solid fa-users-gear"></i>
+    </header>
+    <article class="conteudo">
+        <form method="post" action="entregaEquipamento">
+            @csrf
 
-                    <a href="{{ route('sites') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-arrow-left"></i>
-                            <h3>Devolver equipamento</h3>
-                        </div>
-                    </a>
+            <header class="container-cabecalho">
+                <h1>Entrega de equipamento</h1>
+            </header>
+            <label for="equipamento">
+                <p>Equipamento<span> *</span></p>
+                <div>
+                    <i class="fa-solid fa-microchip"></i>
+                    <select name="equipamento" id="equipamento">
+                        <option value="" {{ old('equipamento') ? '' : 'selected' }}>Selecione o equipamento</option>
+                        @foreach ($equipamentos as $equipamento)
+                            <option value="{{ $equipamento->patrimonio }}" {{ old('equipamento') == $equipamento->patrimonio ? 'selected' : '' }}>{{ $equipamento->patrimonio . ' - ' . $equipamento->modelo }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
-            </section>
-        </article>
-        @include('layouts.rodape')
-    </section>
+                @error('equipamento')
+                <p id="input-error">{{ $message }}</p>
+                <style>
+                    #equipamento {
+                        border: 1px solid #f00
+                    }
+                </style>
+                @enderror
+            </label>
+
+            <label for="colaborador">
+                <p>Colaborador<span> *</span></p>
+                <div>
+                    <i class="fa-solid fa-user-tag"></i>
+                    <select name="colaborador" id="colaborador">
+                        <option value="" {{ old('colaborador') ? '' : 'selected' }}>Selecione o colaborador</option>
+                        @foreach ($colaboradors as $colaborador)
+                            <option value="{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}">{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('colaborador')
+                <p id="input-error">{{ $message }}</p>
+                <style>
+                    #matricula_colaborador {
+                        border: 1px solid #f00
+                    }
+                </style>
+                @enderror
+            </label>
+            <label for="turno">
+                <p>Turno<span> *</span></p>
+                <div>
+                    <i class="fa-solid fa-business-time"></i>
+                    <select name="turno" id="turno">
+                        <option value="" {{ old('turno') ? '' : 'selected' }}>Selecione o turno</option>
+                        @foreach ($turnos as $turno)
+                        <option value="{{ $turno->turno }}">{{ $turno->turno }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('turno')
+                <p id="input-error">{{ $message }}</p>
+                <style>
+                    #site {
+                        border: 1px solid #f00
+                    }
+                </style>
+                @enderror
+            </label>
+
+            <div class="container-buttons">
+                <button type="submit">Entregar</button>
+                <a href="{{ route('homepage')}}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+            </div>
+        </form>
+
+        <section class="table-container">
+
+            <header class="container-cabecalho">
+                <h1>Equipamento em uso no momento</h1>
+            </header>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipamento</th>
+                        <th>Colaborador</th>
+                        <th>Entregue pelo agente</th>
+                        <th>Data/horário da entrega</th>
+                        <th>Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($relatorios as $exibe)
+                    <tr>
+                        <td>{{$exibe->equipamento}}</td>
+                        <td>{{$exibe->colaborador}}</td>
+                        <td>{{$exibe->agente_entrega}}</td>
+                        <td>{{\Carbon\Carbon::parse($exibe->data_entrega)->format('d/m/Y - H:i')}}</td>
+                        <td>
+                            <a href="{{"devolve-equipamento/$exibe->id"}}" ><i class="fa-solid fa-circle-down" id="btn-table-blue"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </section>
+
+    </article>
+    @include('layouts.rodape')
+</section>
 @endsection

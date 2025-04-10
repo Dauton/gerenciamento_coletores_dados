@@ -16,7 +16,7 @@ class CreateController extends Controller
     // CADASTRO DE USUÁRIO
     public function createUser(Request $request)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsCreateUser($request);
 
         $nome = $request->input('nome');
@@ -46,7 +46,7 @@ class CreateController extends Controller
     // CADASTRO DE SITE
     public function createSite(Request $request)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsSite($request);
 
         $descricao = $request->input('descricao');
@@ -64,7 +64,7 @@ class CreateController extends Controller
     // CADASTRO DE AVARIA
     public function createAvaria(Request $request)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsAvaria($request);
 
         $avaria = $request->input('avaria');
@@ -83,7 +83,7 @@ class CreateController extends Controller
     // CADASTRO DE TURNO
     public function createTurno(Request $request)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsTurnos($request);
 
         $turno = $request->input('turno');
@@ -100,7 +100,7 @@ class CreateController extends Controller
     // CADASTRO DE DEPARTAMENTO
     public function createDepartamento(Request $request)
     {
-
+        // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsDepartamento($request);
 
         $departamento = $request->input('departamento');
@@ -117,7 +117,7 @@ class CreateController extends Controller
     // CADASTRO DE EQUIPAMENTO
     public function createEquipamento(Request $request)
     {
-
+        
         InputValidationsController::validationsEquipamento($request);
 
         $marca = $request->input('marca');
@@ -126,7 +126,7 @@ class CreateController extends Controller
         $patrimonio = $request->input('patrimonio');
         $site_equipamento = $request->input('site_equipamento');
         $status = $request->input('status');
-        $situacao = 'DISPONÍVEL';
+        $situacao = 'LIVRE';
         $created_by = session('usuario.nome');
 
         Equipamento::insert([

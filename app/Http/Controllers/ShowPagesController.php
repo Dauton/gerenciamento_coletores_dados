@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Colaborador;
 use App\Models\Departamento;
 use App\Models\Equipamento;
+use App\Models\Relatorio;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 
 class ShowPagesController extends Controller
@@ -23,7 +26,13 @@ class ShowPagesController extends Controller
     // HOMEPAGE PAGE
     public function homepagePage()
     {
-        return view('homepage');
+        $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
+        $colaboradors = Colaborador::all();
+        $turnos = Turno::all();
+        $relatorios = Relatorio::all()->where('data_devolucao', NULL);
+        return view(
+            'homepage', 
+            compact('equipamentos', 'colaboradors', 'turnos', 'relatorios'));
     }
 
     // CADASTROS PAGE
@@ -76,12 +85,18 @@ class ShowPagesController extends Controller
         return view('equipamentos', compact('exibir'));
     }
 
-    // ENTREGA DE EQUIPAMENTO PAGE
-    public function entregaEquipamentoPage()
-    {
-        $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
-        $turnos = Turno::all();
-        return view('entrega-equipamento', compact('equipamentos', 'turnos'));
+    public function devolveEquipamentoPage($id)
+    {   
+        $idRelatorio = Relatorio::where('id', $id)->first();
+        $exibir = Relatorio::all()->where('id', $id);
+        $avarias = Avaria::all();
+
+        // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
+        //if(!empty($exibir->first()->data_devolucao)) {
+        //    return redirect()->back();
+        //}
+
+        return view('devolve-equipamento', compact('idRelatorio', 'exibir', 'avarias'));
     }
 
     // _________________________________________________________________________________________________________________

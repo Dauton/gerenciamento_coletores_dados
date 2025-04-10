@@ -4,15 +4,16 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\ShowPagesController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Middleware\CheckPerfil;
-use App\Http\Middleware\IsLoggedIn;
-use App\Http\Middleware\IsNotLoggedIn;
+use App\Http\Middleware\EstaLogado;
+use App\Http\Middleware\NaoEstaLogado;
 use Illuminate\Support\Facades\Route;
 
 // O USUÁRIO NÃO ESTÁ LOGADO, BLOQUEIA ACESSO A:
-Route::middleware([IsNotLoggedIn::class])->group(function() {
+Route::middleware([NaoEstaLogado::class])->group(function() {
 
     // O PERFIL DO USUÁRIO NÃO É VÁLIDO: BLOQUEIA O ACESSO A:
     Route::middleware([CheckPerfil::class])->group(function() {
@@ -33,8 +34,6 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
         Route::get('/update-departamento/{id}', [ShowPagesController::class, 'updateDepartamentoPage'])->name('update-departamento');
         Route::get('/update-equipamento/{id}', [ShowPagesController::class, 'updateEquipamentoPage'])->name('update-equipamento');
 
-        Route::get('/entrega-equipamento', [ShowPagesController::class, 'entregaEquipamentoPage'])->name('entrega-equipamento');
-
         // EXECUSÕES ROUTES
         Route::post('/createUser', [CreateController::class, 'createUser'])->name('createUser');
         Route::post('/createSite', [CreateController::class, 'createSite'])->name('createSite');
@@ -50,25 +49,29 @@ Route::middleware([IsNotLoggedIn::class])->group(function() {
         Route::post('/updateDepartamento/{id}', [UpdateController::class, 'updateDepartamento'])->name('updateDepartamento');
         Route::post('/updateEquipamento/{id}', [UpdateController::class, 'updateEquipamento'])->name('updateEquipamento');
 
-        Route::get('/deleteUser/{id}', [DeleteController::class, 'deleteUser'])->name('deleteUser');
+        Route::get('/deleteUsuario/{id}', [DeleteController::class, 'deleteUsuario'])->name('deleteUsuario');
         Route::get('/deleteSite/{id}', [DeleteController::class, 'deleteSite'])->name('deleteSite');
         Route::get('/deleteAvaria/{id}', [DeleteController::class, 'deleteAvaria'])->name('deleteAvaria');
         Route::get('/deleteTurno/{id}', [DeleteController::class, 'deleteTurno'])->name('deleteTurno');
+        Route::get('/deleteDepartamento/{id}', [DeleteController::class, 'deleteDepartamento'])->name('deleteDepartamento');
+        Route::get('/deleteEquipamento/{id}', [DeleteController::class, 'deleteEquipamento'])->name('deleteEquipamento');
     });
 
     // SHOWPAGES ROUTES
     Route::get('/homepage', [ShowPagesController::class, 'homepagePage'])->name('homepage');
     Route::get('/update-senha/{id}', [ShowPagesController::class, 'updatePasswordPage'])->name('update-senha');
+    Route::get('/devolve-equipamento/{id}', [ShowPagesController::class, 'devolveEquipamentoPage'])->name('devolve-equipamento');
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/updatePassword/{id}', [PasswordController::class, 'updatePassword'])->name('updatePassword');
-
+    Route::post('/entregaEquipamento', [RelatorioController::class, 'entregaEquipamento'])->name('entregaEquipamento');
+    Route::post('/devolveEquipamento/{id}', [RelatorioController::class, 'devolveEquipamento'])->name('devolveEquipamento');
 
 });
 
 // O USUÁRIO ESTÁ LOGADO, BLOQUEIA ACESSO A:
-Route::middleware([IsLoggedIn::class])->group(function() {
+Route::middleware([EstaLogado::class])->group(function() {
 
     // SHOWPAGES ROUTES
     Route::get('/', [ShowPagesController::class, 'loginPage'])->name('login');
