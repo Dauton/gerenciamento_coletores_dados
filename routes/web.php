@@ -61,6 +61,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
     Route::get('/homepage', [ShowPagesController::class, 'homepagePage'])->name('homepage');
     Route::get('/update-senha/{id}', [ShowPagesController::class, 'updatePasswordPage'])->name('update-senha');
     Route::get('/devolve-equipamento/{id}', [ShowPagesController::class, 'devolveEquipamentoPage'])->name('devolve-equipamento');
+    Route::get('/relatorios', [ShowPagesController::class, 'relatoriosPage'])->name('relatorios');
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

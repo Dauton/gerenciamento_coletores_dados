@@ -9,6 +9,7 @@
     <ul>
         <li><a href="{{ route('homepage') }}"><i class="fa-solid fa-house"></i>Homepage<i class="fa-solid fa-angle-right"></i></a></li>
         <li><a href="{{ route('cadastros') }}"><i class="fa-solid fa-database"></i>Cadastros<i class="fa-solid fa-angle-right"></i></a></li>
+        <li><a href="{{ route('relatorios') }}"><i class="fa-solid fa-table-list"></i>Relatorios<i class="fa-solid fa-angle-right"></i></a></li>
         <li><a href="{{ route('update-senha', session('usuario.id')) }}"><i class="fa-solid fa-key"></i>Minha senha<i class="fa-solid fa-angle-right"></i></a></li>
     </ul>
     <div class="bottom-menu">

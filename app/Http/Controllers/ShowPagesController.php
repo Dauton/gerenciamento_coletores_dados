@@ -10,9 +10,7 @@ use App\Models\Relatorio;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShowPagesController extends Controller
 {
@@ -26,12 +24,13 @@ class ShowPagesController extends Controller
     // HOMEPAGE PAGE
     public function homepagePage()
     {
+
         $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
         $colaboradors = Colaborador::all();
         $turnos = Turno::all();
         $relatorios = Relatorio::all()->where('data_devolucao', NULL);
         return view(
-            'homepage', 
+            'homepage',
             compact('equipamentos', 'colaboradors', 'turnos', 'relatorios'));
     }
 
@@ -86,17 +85,23 @@ class ShowPagesController extends Controller
     }
 
     public function devolveEquipamentoPage($id)
-    {   
+    {
         $idRelatorio = Relatorio::where('id', $id)->first();
         $exibir = Relatorio::all()->where('id', $id);
         $avarias = Avaria::all();
 
         // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
-        //if(!empty($exibir->first()->data_devolucao)) {
-        //    return redirect()->back();
-        //}
+        if(!empty($exibir->first()->data_devolucao)) {
+            return redirect()->back();
+        }
 
         return view('devolve-equipamento', compact('idRelatorio', 'exibir', 'avarias'));
+    }
+
+    public function relatoriosPage()
+    {
+        $sites = Site::all();
+        return view('relatorios', compact('sites'));
     }
 
     // _________________________________________________________________________________________________________________

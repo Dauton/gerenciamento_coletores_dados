@@ -43,7 +43,7 @@
                     <select name="avaria" id="avaria">
                         <option value="" {{ old('avaria') ? '' : 'selected' }}>Selecione o tipo da avaria</option>
                         @foreach ($avarias as $avaria)
-                        <option value="{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}" {{ old('avaria') == $avaria->avaria ? 'selected' : '' }}>{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}</option>
+                            <option value="{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}" {{ old('avaria') == $avaria->avaria ? 'selected' : '' }}>{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -92,10 +92,10 @@
                     <tr>
                         <th>Equipamento</th>
                         <th>Colaborador</th>
-                        <th>Entregue pelo agente</th>
-                        <th>Data/horário da entrega</th>
-                        <th>Devolução pelo agente</th>
-                        <th>Data/hora da devolução</th>
+                        <th>Entregue por</th>
+                        <th>Entregue em</th>
+                        <th>Devolução por</th>
+                        <th>Devolvido em</th>
                         <th>Avaria</th>
                         <th>Foto da avaria</th>
                     </tr>
@@ -111,7 +111,13 @@
                         <td>{{$exibe->data_devolucao}}</td>
                         <td>{{$exibe->avaria}}</td>
                         <td>
-                            <a href="{{"/$exibe->foto_avaria"}}" target="_blank" title="Clique para abrir a foto"><i class="fa-solid fa-image" id="btn-table-blue"></i></a>
+                            @if (empty($exibe->foto_avaria))
+
+                                {{''}}
+
+                            @else
+                                <a href="{{"/$exibe->foto_avaria"}}" target="_blank" title="Clique para abrir a foto"><i class="fa-solid fa-image" id="btn-table-blue"></i></a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
