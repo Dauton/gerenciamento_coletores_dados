@@ -13,7 +13,11 @@
         {{ session('alertInfo') }}
     </p>
 @endif
-
+@if (isset($alertInfo))
+    <p class="alert-result info" id="alert-result">
+        {{ $alertInfo }}
+    </p>
+@endif
 
 <div class="container-alert-confirmacao">
     <div class="alert-confirmacao">

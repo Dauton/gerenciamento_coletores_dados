@@ -20,7 +20,7 @@
                 <p>O equipamento está avariado?<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-burst"></i>
-                    <select name="ha_avaria" id="ha_avaria">
+                    <select name="ha_avaria" id="ha_avaria" class="select2">
                         <option value="" {{ old('ha_avaria') ? '' : 'selected' }}>Selecione</option>
                         <option value="SIM">SIM</option>
                         <option value="NÃO">NÃO</option>
@@ -36,11 +36,11 @@
                 </style>
                 @enderror
             </label>
-            <label for="avaria" id="label_descricao_avaria" style="display: none;">
+            <label for="avaria" id="label_descricao_avaria">
                 <p>Descriçao da avaria<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-burst"></i>
-                    <select name="avaria" id="avaria">
+                    <select name="avaria" id="avaria" class="select2">
                         <option value="" {{ old('avaria') ? '' : 'selected' }}>Selecione o tipo da avaria</option>
                         @foreach ($avarias as $avaria)
                             <option value="{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}" {{ old('avaria') == $avaria->avaria ? 'selected' : '' }}>{{ $avaria->avaria . ' - ' . $avaria->tipo_avaria}}</option>
@@ -57,7 +57,7 @@
                 @enderror
             </label>
 
-            <label for="foto_avaria" id="label_foto_avaria" style="display: none;">
+            <label for="foto_avaria" id="label_foto_avaria">
                 <p>Foto da avaria<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-image"></i>

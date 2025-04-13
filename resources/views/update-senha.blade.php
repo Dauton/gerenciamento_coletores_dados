@@ -5,7 +5,7 @@
     <section class="centro">
         <header class="cabecalho">
             <h1 class="cabecalho-title"><a href="{{ route('homepage') }}">Homepage</a> / <a href='{{ route('cadastros') }}'>Cadastros</a> / <a href='{{ route('usuarios') }}'>Usuários</a> / Reset de senha</h1>
-            <i class="fa-solid fa-users-gear"></i>
+            <i class="fa-solid fa-key"></i>
         </header>
         <article class="conteudo">
             <form method="post" action="/updatePassword/{{ $exibir->id }}">

@@ -43,7 +43,7 @@
                     <h1>Gerenciamento de sites</h1>
                 </header>
 
-                <table>
+                <table class="DataTable">
                     <thead>
                         <tr>
                             <th>ID site</th>

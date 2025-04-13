@@ -33,7 +33,7 @@
                 <label for="tipo_avaria"><p>Tipo avaria<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-burst"></i>
-                        <select name="tipo_avaria" id="tipo_avaria">
+                        <select name="tipo_avaria" id="tipo_avaria" class="select2">
                             <option value="{{ $exibir->tipo_avaria }}">{{ $exibir->tipo_avaria }}</option>
                             <option value="Sistêmico (Software)">Sistêmico (Software)</option>
                             <option value="Físico (Hardware)">Físico (Hardware)</option>

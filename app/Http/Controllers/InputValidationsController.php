@@ -177,11 +177,13 @@ class InputValidationsController extends Controller
             [
                 'equipamento' => ['required'],
                 'colaborador' => ['required'],
-                'turno' => ['required']
+                'departamento' => ['required'],
+                'turno' => ['required'],
             ],
             [
                 'equipamento.required' => 'O equipamento a ser entregue deve ser informado.',
                 'colaborador' => 'O dado do colaborador deve ser informado.',
+                'departamento' => 'O departamento deve ser informado.',
                 'turno' => 'O turno deve ser informado.'
             ]
         );

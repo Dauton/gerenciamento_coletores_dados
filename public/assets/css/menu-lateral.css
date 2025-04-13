@@ -74,8 +74,8 @@
     width: 100px;
 }
 .menu-lateral .bottom-menu p {
-    width: 100px;
-    padding: 5px;
+    width: fit-content;
+    padding: 5px 10px;
     border-radius: 2px;
     background: var(--tertiary-color);
     color: #f1f1f1;

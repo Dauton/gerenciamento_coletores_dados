@@ -28,10 +28,11 @@ class ShowPagesController extends Controller
         $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
         $colaboradors = Colaborador::all();
         $turnos = Turno::all();
-        $relatorios = Relatorio::all()->where('data_devolucao', NULL);
+        $departamentos = Departamento::all();
+        $relatorios = Relatorio::all()->where('data_devolucao', NULL)->where('site', session('usuario.site'));
         return view(
             'homepage',
-            compact('equipamentos', 'colaboradors', 'turnos', 'relatorios'));
+            compact('equipamentos', 'colaboradors', 'turnos', 'departamentos', 'relatorios'));
     }
 
     // CADASTROS PAGE
@@ -44,7 +45,8 @@ class ShowPagesController extends Controller
     public function usuariosPage()
     {
         $exibir = Usuario::all();
-        return view('usuarios', compact('exibir'));
+        $sites = Site::all();
+        return view('usuarios', compact('exibir', 'sites'));
     }
 
     // SITES PAGE
@@ -81,7 +83,8 @@ class ShowPagesController extends Controller
     public function equipamentosPage()
     {
         $exibir = Equipamento::all();
-        return view('equipamentos', compact('exibir'));
+        $sites = Site::all();
+        return view('equipamentos', compact('exibir', 'sites'));
     }
 
     public function devolveEquipamentoPage($id)
@@ -92,7 +95,7 @@ class ShowPagesController extends Controller
 
         // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
         if(!empty($exibir->first()->data_devolucao)) {
-            return redirect()->back();
+            return redirect()->back()->with('alertError', 'Esse equipamento já foi devolvido.');
         }
 
         return view('devolve-equipamento', compact('idRelatorio', 'exibir', 'avarias'));
@@ -100,8 +103,10 @@ class ShowPagesController extends Controller
 
     public function relatoriosPage()
     {
+        $relatorios = Relatorio::limit(0)->get();
         $sites = Site::all();
-        return view('relatorios', compact('sites'));
+        $equipamentos = Equipamento::all();
+        return view('relatorios', compact('relatorios', 'sites', 'equipamentos'));
     }
 
     // _________________________________________________________________________________________________________________
@@ -119,7 +124,8 @@ class ShowPagesController extends Controller
     public function updateUsuarioPage($id)
     {
         $exibir = Usuario::where('id', $id)->first();
-        return view('update-usuario', compact('exibir'));
+        $sites = Site::all();
+        return view('update-usuario', compact('exibir', 'sites'));
     }
 
     // UPDATE SITE PAGE

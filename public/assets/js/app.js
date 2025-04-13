@@ -1,31 +1,14 @@
-// BIBLIOTECA SELECT2
-$(window).on('load', function () {
-    $('select').select2(); // Inicializa após o carregamento completo da página
-});
-
-// MENSAGEM DE ALERTA SOME APÓS 5 SEGUNDOS
-setTimeout(() => {
-    let p = document.getElementById("alert-result");
-    p.style.opacity = "0";
-
-    setTimeout(() => {
-        p.style.display = "none";
-    }, 3000);
-}, 5000);
-
-
 $(document).ready(function () {
-    $('#ha_avaria').on('change', function () {
-        const selecionar = $(this).val();
 
-        if (selecionar === 'SIM') {
-            $('#label_descricao_avaria').show();
-            $('#label_foto_avaria').show();
-        } else {
-            $('#label_descricao_avaria').hide();
-            $('#label_foto_avaria').hide();
-            $('#avaria').val('');
-            $('#foto_avaria').val('');
+    // BIBLIOTECA Select2
+    $(window).on('load', function () {
+        $('.select2').select2();
+    });
+
+    // BIBLIOTECA DataTables
+    $('.DataTable').DataTable({
+        language: {
+            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json",
         }
     });
 
@@ -61,3 +44,14 @@ $(document).ready(function () {
     })
 
 });
+
+// MENSAGEM DE ALERTA SOME APÓS 5 SEGUNDOS
+setTimeout(() => {
+    let p = document.getElementById("alert-result");
+    p.style.opacity = "0";
+
+    setTimeout(() => {
+        p.style.display = "none";
+    }, 3000);
+}, 5000);
+

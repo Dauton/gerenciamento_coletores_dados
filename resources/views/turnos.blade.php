@@ -43,7 +43,7 @@
                     <h1>Gerenciamento de turnos</h1>
                 </header>
 
-                <table>
+                <table class="DataTable">
                     <thead>
                         <tr>
                             <th>ID turno</th>

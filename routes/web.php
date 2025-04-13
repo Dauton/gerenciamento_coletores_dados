@@ -68,6 +68,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
     Route::post('/updatePassword/{id}', [PasswordController::class, 'updatePassword'])->name('updatePassword');
     Route::post('/entregaEquipamento', [RelatorioController::class, 'entregaEquipamento'])->name('entregaEquipamento');
     Route::post('/devolveEquipamento/{id}', [RelatorioController::class, 'devolveEquipamento'])->name('devolveEquipamento');
+    Route::post('/buscaRelatorio', [RelatorioController::class, 'buscaRelatorio'])->name('buscaRelatorio');
 
 });
 

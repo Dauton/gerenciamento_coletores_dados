@@ -32,7 +32,7 @@
     background: #eaf5ff;
 }
 #login-form label input {
-    padding: 8px;
+    padding: 0;
     border: none;
     background: #eaf5ff;
     border: none !important;
@@ -40,6 +40,8 @@
 #login-form label i {
     min-width: 40px;
     font-size: 13px;
+    background: #eaf5ff;
+    color: #505050;
 }
 #login-form img {
     width: 120px;

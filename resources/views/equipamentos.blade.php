@@ -75,10 +75,11 @@
             <label for="site_equipamento"><p>Site do equipamento<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <select name="site_equipamento" id="site_equipamento">
+                    <select name="site_equipamento" id="site_equipamento" class="select2">
                         <option value="{{ old('site_equipamento') }}">Selecione o site</option>
-                        <option value="CDARCEX">CDARCEX</option>
-                        <option value="CDAMBEX">CDAMBEX</option>
+                        @foreach ($sites as $site)
+                            <option value="{{ $site->descricao }}">{{ $site->descricao }}</option>
+                        @endforeach
                     </select>
                 </div>
                 @error('site_equipamento')
@@ -93,7 +94,7 @@
                 <label for="status"><p>Status<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-circle-check"></i>
-                        <select name="status" id="status">
+                        <select name="status" id="status" class="select2">
                             <option value="{{ old('status') }}">Selecione o status</option>
                             <option value="PRODUÇÃO">PRODUÇÃO</option>
                             <option value="MANUTENÇÃO">MANUTENÇÃO</option>
@@ -122,7 +123,7 @@
                     <h1>Gerenciamento de equipamentos</h1>
                 </header>
 
-                <table>
+                <table class="DataTable">
                     <thead>
                         <tr>
                             <th>Marca</th>

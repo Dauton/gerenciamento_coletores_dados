@@ -84,7 +84,7 @@
                 <label for="site_equipamento"><p>Site<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-map-location-dot"></i>
-                        <select name="site_equipamento" id="site_equipamento">
+                        <select name="site_equipamento" id="site_equipamento" class="select2">
                             <option value="{{ $exibir->site_equipamento }}">{{ $exibir->site_equipamento }}</option>
                             @foreach ($sites as $site)
                                 <option value="{{$site->descricao}}">{{$site->descricao}}</option>
@@ -103,7 +103,7 @@
                 <label for="status"><p>Status<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-circle-check"></i>
-                        <select name="status" id="status">
+                        <select name="status" id="status" class="select2">
                             <option value="{{ $exibir->status }}">{{ $exibir->status }}</option>
                             <option value="PRODUÇÃO">PRODUÇÃO</option>
                             <option value="MANUTENÇÃO">MANUTENÇÃO</option>

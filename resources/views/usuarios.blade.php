@@ -60,10 +60,11 @@
                 <label for="site"><p>Site<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-map-location-dot"></i>
-                        <select name="site" id="site">
+                        <select name="site" id="site" class="select2">
                             <option value="{{ old('site') }}">Selecione o site</option>
-                            <option value="CDARCEX">CDARCEX</option>
-                            <option value="CDNIVEX">CDNIVEX</option>
+                            @foreach ($sites as $site)
+                                <option value="{{ $site->descricao }}">{{ $site->descricao }}</option>
+                            @endforeach
                         </select>
                     </div>
                     @error('site')
@@ -78,10 +79,10 @@
                 <label for="perfil"><p>Perfil<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-user-shield"></i>
-                        <select name="perfil" id="perfil">
+                        <select name="perfil" id="perfil" class="select2">
                             <option value="{{ old('perfil') }}">Selecione o perfil</option>
                             <option value="ADMIN">ADMIN</option>
-                            <option value="TI SITES">TI SITES</option>
+                            <option value="OPERAÇÃO">OPERAÇÃO</option>
                         </select>
                     </div>
                     @error('perfil')
@@ -135,7 +136,7 @@
                     <h1>Gerenciamento de usuários</h1>
                 </header>
 
-                <table>
+                <table class="DataTable">
                     <thead>
                         <tr>
                             <th>Nome</th>

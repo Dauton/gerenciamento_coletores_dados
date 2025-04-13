@@ -61,10 +61,11 @@
                 <label for="site"><p>Site<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-map-location-dot"></i>
-                        <select name="site" id="site">
+                        <select name="site" id="site" class="select2">
                             <option value="{{ $exibir->site }}">{{ $exibir->site }}</option>
-                            <option value="CDARCEX">CDARCEX</option>
-                            <option value="CDNIVEX">CDNIVEX</option>
+                            @foreach ($sites as $site)
+                                <option value="{{ $site->descricao }}">{{ $site->descricao }}</option>
+                            @endforeach
                         </select>
                     </div>
                     @error('site')
@@ -79,7 +80,7 @@
                 <label for="perfil"><p>Perfil<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-user-shield"></i>
-                        <select name="perfil" id="perfil">
+                        <select name="perfil" id="perfil" class="select2">
                             <option value="{{ $exibir->perfil }}">{{ $exibir->perfil }}</option>
                             <option value="ADMIN">ADMIN</option>
                             <option value="TI SITES">TI SITES</option>

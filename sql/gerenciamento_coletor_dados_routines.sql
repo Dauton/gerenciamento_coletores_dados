@@ -34,4 +34,4 @@ USE `gerenciamento_coletor_dados`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-10 22:21:09
+-- Dump completed on 2025-04-13  0:02:06

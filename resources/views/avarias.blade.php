@@ -33,7 +33,7 @@
                 <label for="avaria"><p>Tipo da varia<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-burst"></i>
-                        <select name="tipo_avaria" id="tipo_avaria">
+                        <select name="tipo_avaria" id="tipo_avaria" class="select2">
                             <option value="">Selecione o tipo da avaria</option>
                             <option value="Sistêmico (Software)">Sistêmico (Software)</option>
                             <option value="Físico (Hardware)">Físico (Hardware)</option>
@@ -62,7 +62,7 @@
                     <h1>Gerenciamento de avarias</h1>
                 </header>
 
-                <table>
+                <table class="DataTable">
                     <thead>
                         <tr>
                             <th>ID avaria</th>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
 use App\Models\Relatorio;
+use App\Models\Site;
 use Illuminate\Http\Request;
 
 class RelatorioController extends Controller
@@ -21,13 +22,19 @@ class RelatorioController extends Controller
             return redirect()->back()->withInput()->with('alertError', "Esse equipamento já está em uso.");
         }
 
+        $site = session('usuario.site');
         $equipamento = $request->input('equipamento');
         $colaborador = $request->input('colaborador');
+        $departamento = $request->input('departamento');
+        $turno = $request->input('turno');
         $agente_entrega = session('usuario.nome');
 
         Relatorio::insert([
+            'site' => $site,
             'equipamento' => $equipamento,
             'colaborador' => $colaborador,
+            'departamento' => $departamento,
+            'turno' => $turno,
             'agente_entrega' => $agente_entrega
         ]);
 
@@ -50,24 +57,27 @@ class RelatorioController extends Controller
         $foto_avaria = $request->input('foto_avaria');
         $equipamento = $request->input('equipamento');
 
-        // CASO NÃO HOUVER AVARIA
-        if ($request->input('ha_avaria') === 'NÃO') {
-            $avaria = 'NÃO';
-        }
-
+        // LÓGICA DA FOTO DA AVARIA
         $foto_avaria = $_FILES['foto_avaria'];
         $nome = $foto_avaria['name'];
         $tmp_name = $foto_avaria['tmp_name'];
 
         $extensao = pathinfo($nome, PATHINFO_EXTENSION);
-        $novo_nome = uniqid() . '.' . $extensao;
+        $novo_nome = date('d-m-Y-') . uniqid() . '.' . $extensao;
         move_uploaded_file($tmp_name, "assets/uploads/$novo_nome");
+        $arquivo_gravado = "assets/uploads/$novo_nome";
+
+        // CASO NÃO HOUVER AVARIA
+        if ($request->input('ha_avaria') === 'NÃO') {
+            $avaria = 'NÃO';
+            $arquivo_gravado = NULL;
+        }
 
         Relatorio::where('id', $id)->update([
             'agente_devolucao' => $agente_devolucao,
-            'data_devolucao' => date('Y-m-d H:i:s'),
+            'data_devolucao' => now(),
             'avaria' => $avaria,
-            'foto_avaria' => "assets/uploads/$novo_nome"
+            'foto_avaria' => $arquivo_gravado
         ]);
 
         Equipamento::where('patrimonio', $equipamento)->update([
@@ -75,5 +85,39 @@ class RelatorioController extends Controller
         ]);
 
         return redirect('homepage')->with('alertSuccess', "Equipamento devolvido com sucesso.");
+    }
+
+    // BUSCA RELATÓRIOS
+    public function buscaRelatorio(Request $request)
+    {
+        $data_inicio = $request->input('data_inicio');
+        $data_final = $request->input('data_final');
+        $site = $request->input('site');
+        $equipamento = $request->input('equipamento');
+        
+        $query = Relatorio::query()->where('site', session('usuario.site'))->limit(200);
+        
+        if ($data_inicio && $data_final) {
+            $data_inicio .= ' 00:00:00';
+            $data_final  .= ' 23:59:59';
+            $query->whereBetween('data_entrega', [$data_inicio, $data_final]);
+        }
+        if ($site) {
+            $query->where('site', $site);
+        }
+        if ($equipamento) {
+            $query->where('equipamento', $equipamento);
+        }
+
+        $relatorios = $query->orderBy('data_devolucao')->get();
+        $sites = Site::all();
+        $equipamentos = Equipamento::all();
+        
+        return view('relatorios', [
+            'relatorios' => $relatorios,
+            'sites' => $sites,
+            'equipamentos' => $equipamentos,
+            'alertInfo' => 'Exibindo relatório conforme dados buscados'
+        ]);
     }
 }
