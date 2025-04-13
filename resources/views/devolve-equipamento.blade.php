@@ -94,10 +94,6 @@
                         <th>Colaborador</th>
                         <th>Entregue por</th>
                         <th>Entregue em</th>
-                        <th>Devolução por</th>
-                        <th>Devolvido em</th>
-                        <th>Avaria</th>
-                        <th>Foto da avaria</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,18 +103,6 @@
                         <td>{{$exibe->colaborador}}</td>
                         <td>{{$exibe->agente_entrega}}</td>
                         <td>{{\Carbon\Carbon::parse($exibe->data_entrega)->format('d/m/Y - H:i')}}</td>
-                        <td>{{$exibe->agente_devolucao}}</td>
-                        <td>{{$exibe->data_devolucao}}</td>
-                        <td>{{$exibe->avaria}}</td>
-                        <td>
-                            @if (empty($exibe->foto_avaria))
-
-                                {{''}}
-
-                            @else
-                                <a href="{{"/$exibe->foto_avaria"}}" target="_blank" title="Clique para abrir a foto"><i class="fa-solid fa-image" id="btn-table-blue"></i></a>
-                            @endif
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>

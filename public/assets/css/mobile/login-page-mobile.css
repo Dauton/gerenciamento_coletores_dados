@@ -3,5 +3,8 @@
     #login-form {
         width: 95% !important;
     }
+    .cabecalho {
+        display: none;
+    }
 
 }

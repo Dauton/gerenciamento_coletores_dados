@@ -32,7 +32,7 @@
     background: #eaf5ff;
 }
 #login-form label input {
-    padding: 0;
+    padding: 10px 0;
     border: none;
     background: #eaf5ff;
     border: none !important;

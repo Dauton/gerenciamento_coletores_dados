@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DeleteController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\SenhaController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\ShowPagesController;
 use App\Http\Controllers\UpdateController;
@@ -65,7 +65,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
 
     // EXECUÇÕES ROUTES
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/updatePassword/{id}', [PasswordController::class, 'updatePassword'])->name('updatePassword');
+    Route::post('/updateSenha/{id}', [SenhaController::class, 'updateSenha'])->name('updateSenha');
     Route::post('/entregaEquipamento', [RelatorioController::class, 'entregaEquipamento'])->name('entregaEquipamento');
     Route::post('/devolveEquipamento/{id}', [RelatorioController::class, 'devolveEquipamento'])->name('devolveEquipamento');
     Route::post('/buscaRelatorio', [RelatorioController::class, 'buscaRelatorio'])->name('buscaRelatorio');

@@ -21,7 +21,7 @@
                     <select name="equipamento" id="equipamento" class="select2">
                         <option value="" {{ old('equipamento') ? '' : 'selected' }}>Selecione o equipamento</option>
                         @foreach ($equipamentos as $equipamento)
-                            <option value="{{ $equipamento->patrimonio }}" {{ old('equipamento') == $equipamento->patrimonio ? 'selected' : '' }}>{{ $equipamento->patrimonio . ' - ' . $equipamento->modelo }}</option>
+                        <option value="{{ $equipamento->patrimonio }}" {{ old('equipamento') == $equipamento->patrimonio ? 'selected' : '' }}>{{ $equipamento->patrimonio . ' - ' . $equipamento->modelo }}</option>
                         @endforeach
                     </select>
 
@@ -42,8 +42,8 @@
                     <i class="fa-solid fa-user-tag"></i>
                     <select name="colaborador" id="colaborador" class="select2">
                         <option value="" {{ old('colaborador') ? '' : 'selected' }}>Selecione o colaborador</option>
-                        @foreach ($colaboradors as $colaborador)
-                            <option value="{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}">{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
+                        @foreach ($colaboradores as $colaborador)
+                        <option value="{{ $colaborador->matricula_colaborador }}" {{ old('colaborador') == $colaborador->matricula_colaborador ? 'selected' : '' }}>{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -56,7 +56,25 @@
                 </style>
                 @enderror
             </label>
-            
+
+            <!--<label for="loginAmazon">
+                <p>Login Amazon<span> *</span></p>
+                <div>
+                    <i class="fa-solid fa-user-tag"></i>
+                    <input type="number" name="loginAmazon" id="loginAmazon">
+                </div>
+                @error('loginAmazon')
+                <p id="input-error">{{ $message }}</p>
+                <style>
+                    #loginAmazon {
+                        border: 1px solid #f00
+                    }
+                </style>
+                @enderror
+            </label>
+            <p id="result">000,00000000000000000000000</p>
+            -->
+
             <label for="departamento">
                 <p>Departamentos<span> *</span></p>
                 <div>
@@ -64,7 +82,7 @@
                     <select name="departamento" id="departamento" class="select2">
                         <option value="" {{ old('departamento') ? '' : 'selected' }}>Selecione o departamento</option>
                         @foreach ($departamentos as $departamento)
-                        <option value="{{ $departamento->departamento }}">{{ $departamento->departamento }}</option>
+                        <option value="{{ $departamento->departamento }}" {{ old('departamentos') == $departamento->departamento ? 'selected' : '' }}>{{ $departamento->departamento }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -85,7 +103,7 @@
                     <select name="turno" id="turno" class="select2">
                         <option value="" {{ old('turno') ? '' : 'selected' }}>Selecione o turno</option>
                         @foreach ($turnos as $turno)
-                        <option value="{{ $turno->turno }}">{{ $turno->turno }}</option>
+                        <option value="{{ $turno->turno }}" {{ old('turnos') == $turno->turno ? 'selected' : '' }}>{{ $turno->turno }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -133,7 +151,7 @@
                         <td>{{$exibe->agente_entrega}}</td>
                         <td>{{\Carbon\Carbon::parse($exibe->data_entrega)->format('d/m/Y - H:i')}}</td>
                         <td>
-                            <a href="{{"devolve-equipamento/$exibe->id"}}" ><i class="fa-solid fa-circle-down" id="btn-table-blue"></i></a>
+                            <a href="{{"devolve-equipamento/$exibe->id"}}"><i class="fa-solid fa-circle-down" id="btn-table-blue"></i></a>
                         </td>
                     </tr>
                     @endforeach

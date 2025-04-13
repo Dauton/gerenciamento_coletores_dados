@@ -8,9 +8,7 @@ use App\Models\Equipamento;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
-use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class UpdateController extends Controller
 {
@@ -57,6 +55,7 @@ class UpdateController extends Controller
     // UPDATE AVARIA
     public function updateAvaria(Request $request, $id)
     {
+
         // VALIDAÇÃO DOS CAMPOS
         InputValidationsController::validationsAvaria($request);
 

@@ -41,24 +41,23 @@
 }
 
 .menu-lateral ul li a {
+    padding: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    gap: 10px;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 14px;
     text-decoration: none;
     color: #f1f1f1;
-    background: var(--tertiary-color);
 }
 
 .menu-lateral ul li a:hover {
-    background: var(--quaternary-color);
+    background: var(--tertiary-color);
     color: #fff;
 }
 
 .menu-lateral ul li a i {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .menu-lateral .bottom-menu {

@@ -130,6 +130,6 @@
         @include('layouts.rodape')
     </section>
     @section('executa-confirmacao')
-        <a href="/deleteEquipamento/{{ $exibir->id }}"><button type="button" id="btn-red">Excluir</button></a>
+        <a href="/deleteEquipamento/{{ Crypt::encrypt($exibir->id) }}"><button type="button" id="btn-red">Excluir</button></a>
     @endsection
 @endsection

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipamento;
 use Illuminate\Http\Request;
 
 class InputValidationsController extends Controller
@@ -75,7 +74,7 @@ class InputValidationsController extends Controller
     }
 
     // RESET PASSWORD VALIDATIONS
-    public static function validationsUpdatePassword(Request $request)
+    public static function validationsUpdateSenha(Request $request)
     {
         $request->validate(
             [

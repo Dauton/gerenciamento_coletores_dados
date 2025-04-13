@@ -8,7 +8,7 @@
             <i class="fa-solid fa-key"></i>
         </header>
         <article class="conteudo">
-            <form method="post" action="/updatePassword/{{ $exibir->id }}">
+            <form method="post" action="/updateSenha/{{ Crypt::encrypt($exibir->id) }}">
                 @csrf
 
                 <header class="container-cabecalho">
@@ -48,7 +48,7 @@
 
                 <div class="container-buttons">
                     <button type="submit">Submeter</button>
-                    <a href="{{ url()->previous() }}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+                    <a href="{{ route('usuarios') }}"><button type="button" id="btn-cancelar">Cancelar</button></a>
                 </div>
 
             </form>

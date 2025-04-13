@@ -94,9 +94,9 @@ class RelatorioController extends Controller
         $data_final = $request->input('data_final');
         $site = $request->input('site');
         $equipamento = $request->input('equipamento');
-        
+
         $query = Relatorio::query()->where('site', session('usuario.site'))->limit(200);
-        
+
         if ($data_inicio && $data_final) {
             $data_inicio .= ' 00:00:00';
             $data_final  .= ' 23:59:59';
@@ -112,7 +112,7 @@ class RelatorioController extends Controller
         $relatorios = $query->orderBy('data_devolucao')->get();
         $sites = Site::all();
         $equipamentos = Equipamento::all();
-        
+
         return view('relatorios', [
             'relatorios' => $relatorios,
             'sites' => $sites,

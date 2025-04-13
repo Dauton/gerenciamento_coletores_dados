@@ -1,3 +1,4 @@
+
 @extends('layouts.content')
 @section('content')
     @include('layouts.menu-lateral')
@@ -7,9 +8,6 @@
             <i class="fa-solid fa-database"></i>
         </header>
         <article class="conteudo">
-            <section class="conteudo-title">
-                <h1>Cadastros</h1>
-            </section>
             <section class="conteudo-center">
                 <div class="links-container">
                     <header class="container-cabecalho">

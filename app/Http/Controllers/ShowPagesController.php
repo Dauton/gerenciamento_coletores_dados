@@ -10,7 +10,8 @@ use App\Models\Relatorio;
 use App\Models\Site;
 use App\Models\Turno;
 use App\Models\Usuario;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
 
 class ShowPagesController extends Controller
 {
@@ -26,13 +27,14 @@ class ShowPagesController extends Controller
     {
 
         $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
-        $colaboradors = Colaborador::all();
+        $colaboradores = Colaborador::all();
         $turnos = Turno::all();
         $departamentos = Departamento::all();
         $relatorios = Relatorio::all()->where('data_devolucao', NULL)->where('site', session('usuario.site'));
         return view(
             'homepage',
-            compact('equipamentos', 'colaboradors', 'turnos', 'departamentos', 'relatorios'));
+            compact('equipamentos', 'colaboradores', 'turnos', 'departamentos', 'relatorios')
+        );
     }
 
     // CADASTROS PAGE
@@ -45,7 +47,7 @@ class ShowPagesController extends Controller
     public function usuariosPage()
     {
         $exibir = Usuario::all();
-        $sites = Site::all();
+        $sites = Site::orderBy('descricao')->get();
         return view('usuarios', compact('exibir', 'sites'));
     }
 
@@ -54,7 +56,6 @@ class ShowPagesController extends Controller
     {
 
         $exibir = Site::all();
-
         return view('sites', compact('exibir'));
     }
 
@@ -83,7 +84,7 @@ class ShowPagesController extends Controller
     public function equipamentosPage()
     {
         $exibir = Equipamento::all();
-        $sites = Site::all();
+        $sites = Site::orderBy('descricao')->get();
         return view('equipamentos', compact('exibir', 'sites'));
     }
 
@@ -91,10 +92,10 @@ class ShowPagesController extends Controller
     {
         $idRelatorio = Relatorio::where('id', $id)->first();
         $exibir = Relatorio::all()->where('id', $id);
-        $avarias = Avaria::all();
+        $avarias = Avaria::orderBy('tipo_avaria')->get();
 
         // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
-        if(!empty($exibir->first()->data_devolucao)) {
+        if (!empty($exibir->first()->data_devolucao)) {
             return redirect()->back()->with('alertError', 'Esse equipamento já foi devolvido.');
         }
 
@@ -104,8 +105,8 @@ class ShowPagesController extends Controller
     public function relatoriosPage()
     {
         $relatorios = Relatorio::limit(0)->get();
-        $sites = Site::all();
-        $equipamentos = Equipamento::all();
+        $sites = Site::orderBy('descricao')->get();
+        $equipamentos = Equipamento::orderBy('modelo')->get();
         return view('relatorios', compact('relatorios', 'sites', 'equipamentos'));
     }
 
@@ -116,6 +117,12 @@ class ShowPagesController extends Controller
     // UPDATE PASSWORD USER PAGE
     public function updatePasswordPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Usuario::where('id', $id)->first();
         return view('update-senha', compact('exibir'));
     }
@@ -123,14 +130,26 @@ class ShowPagesController extends Controller
     // UPDATE USER PAGE
     public function updateUsuarioPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Usuario::where('id', $id)->first();
-        $sites = Site::all();
+        $sites = Site::orderBy('descricao')->get();
         return view('update-usuario', compact('exibir', 'sites'));
     }
 
     // UPDATE SITE PAGE
     public function updateSitePage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Site::where('id', $id)->first();
         return view('update-site', compact('exibir'));
     }
@@ -138,6 +157,12 @@ class ShowPagesController extends Controller
     // UPDATE AVARIA PAGE
     public function updateAvariaPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Avaria::where('id', $id)->first();
         return view('update-avaria', compact('exibir'));
     }
@@ -145,6 +170,12 @@ class ShowPagesController extends Controller
     // UPDATE TURNO PAGE
     public function updateTurnoPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Turno::where('id', $id)->first();
         return view('update-turno', compact('exibir'));
     }
@@ -152,6 +183,12 @@ class ShowPagesController extends Controller
     // UPDATE DEPARTAMENTO PAGE
     public function updateDepartamentoPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Departamento::where('id', $id)->first();
         return view('update-departamento', compact('exibir'));
     }
@@ -159,8 +196,14 @@ class ShowPagesController extends Controller
     // UPDATE EQUIPAMENTO PAGE
     public function updateEquipamentoPage($id)
     {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
         $exibir = Equipamento::where('id', $id)->first();
-        $sites = Site::all();
+        $sites = Site::orderBy('descricao')->get();
         return view('update-equipamento', compact('exibir', 'sites'));
     }
 }

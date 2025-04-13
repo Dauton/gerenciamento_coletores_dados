@@ -80,7 +80,7 @@
                                 <td>{{ $exibe->tipo_avaria }}</td>
                                 <td>{{ date_format($exibe->created_at, 'd/m/Y - H:i') }}</td>
                                 <td>
-                                    <a href="update-avaria/{{$exibe->id}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
+                                    <a href="update-avaria/{{Crypt::encrypt($exibe->id)}}"><i class="fa-solid fa-square-pen" id="btn-table-blue"></i></a>
                                 </td>
                             </tr>
                             @endforeach

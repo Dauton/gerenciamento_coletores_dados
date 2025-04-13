@@ -55,3 +55,59 @@ setTimeout(() => {
     }, 3000);
 }, 5000);
 
+/*
+
+document.getElementById("loginAmazon").addEventListener("input", convert);
+
+function convert() {
+    var loginAmazon = document.getElementById("loginAmazon").value;
+
+    if (!loginAmazon || Number(loginAmazon) < 0) {
+        document.getElementById("result").innerHTML = "000,00000000000000000000000";
+        return;
+    }
+
+    var abatrackHexa = Number(loginAmazon).toString(16);
+    if (abatrackHexa.length == 5) {
+        abatrackHexa = "0" + abatrackHexa;
+    }
+    var abaLength = abatrackHexa.length;
+    var abatrackLast4 = abatrackHexa.substring(abaLength - 4);
+    var abatrackRest = abatrackHexa.substring(abaLength - 6, abaLength - 4);
+    var numberOfZeros = 0;
+    for (var i = 0; i < abatrackLast4.length; i++) {
+        if (abatrackLast4.charAt(i) == '0') {
+            numberOfZeros++;
+        } else {
+            break;
+        }
+    }
+    var wiegandEnd = parseInt(abatrackLast4, 16);
+    if (wiegandEnd.toString().length < 5 && numberOfZeros == 0) {
+        numberOfZeros += 5 - wiegandEnd.toString().length;
+    }
+    var wiegandBegin = parseInt(abatrackRest, 16);
+    var wiegandEndZeros = "";
+    for (var i = 0; i < numberOfZeros; i++) {
+        wiegandEndZeros += "0";
+    }
+    var wiegandString = wiegandBegin.toString().padStart(3, '0') + "," + wiegandEndZeros + wiegandEnd.toString().padStart(5, '0');
+    var serialID = parseInt(wiegandString.replace(",", ""));
+    document.getElementById("result").innerHTML = wiegandString;
+
+    // Convertendo Wiegand para Hexadecimal
+    var facilityCode = wiegandString.slice(0, 3); // Primeiros 3 dígitos
+    var digitsAfterComma = wiegandString.slice(4); // Dígitos após a vírgula
+
+    var facilityCodeHex = parseInt(facilityCode).toString(16).toUpperCase();
+    var digitsAfterCommaHex = parseInt(digitsAfterComma).toString(16).toUpperCase();
+
+    var hexaString = facilityCodeHex.padStart(4, '0') + digitsAfterCommaHex.padStart(4, '0');
+    document.getElementById("result").innerHTML + hexaString;
+
+    // Convertendo Hexadecimal para Decimal
+    var decimalString = parseInt(hexaString, 16);
+    document.getElementById("result").innerHTML += decimalString.toString().padStart(10, '0');
+} 
+    
+*/
