@@ -15,6 +15,8 @@
 
             <h1>Busca de relatório</h1>
 
+            <h5>Para obter todos os dados, deixe os campos em branco.</h5>
+
             <label for="data_inicio">
                 <p>De<span> *</span></p>
                 <div>
@@ -90,7 +92,7 @@
                         <th>Turno</th>
                         <th>Entregue por</th>
                         <th>Entregue em</th>
-                        <th>Devolução por</th>
+                        <th>Confirmou devolução</th>
                         <th>Devolvido em</th>
                         <th>Avaria</th>
                         <th>Foto da avaria</th>

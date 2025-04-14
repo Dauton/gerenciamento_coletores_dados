@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `gerenciamento_coletor_dados` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `gerenciamento_coletor_dados`;
+CREATE DATABASE  IF NOT EXISTS `gerenciamento_equipamentos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gerenciamento_equipamentos`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: gerenciamento_coletor_dados
+-- Host: localhost    Database: gerenciamento_equipamentos
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,36 +18,30 @@ USE `gerenciamento_coletor_dados`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `relatorios`
+-- Table structure for table `turnos`
 --
 
-DROP TABLE IF EXISTS `relatorios`;
+DROP TABLE IF EXISTS `turnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `relatorios` (
+CREATE TABLE `turnos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `site` varchar(45) NOT NULL,
-  `equipamento` varchar(100) NOT NULL,
-  `colaborador` varchar(256) NOT NULL,
-  `departamento` varchar(100) NOT NULL,
   `turno` varchar(45) NOT NULL,
-  `agente_entrega` varchar(256) NOT NULL,
-  `data_entrega` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `agente_devolucao` varchar(256) DEFAULT NULL,
-  `data_devolucao` datetime DEFAULT NULL,
-  `avaria` varchar(256) DEFAULT NULL,
-  `foto_avaria` varchar(256) DEFAULT NULL,
+  `created_by` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `relatorios`
+-- Dumping data for table `turnos`
 --
 
-LOCK TABLES `relatorios` WRITE;
-/*!40000 ALTER TABLE `relatorios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `relatorios` ENABLE KEYS */;
+LOCK TABLES `turnos` WRITE;
+/*!40000 ALTER TABLE `turnos` DISABLE KEYS */;
+INSERT INTO `turnos` VALUES (1,'T1','DAUTON PEREIRA FÉLIX','2025-04-04 14:17:17','2025-04-04 17:56:41'),(3,'T2','DAUTON PEREIRA FÉLIX','2025-04-10 14:45:14',NULL),(4,'T3','DAUTON PEREIRA FÉLIX','2025-04-10 14:45:17',NULL),(5,'ADMINSTRATIVO','DAUTON PEREIRA FÉLIX','2025-04-10 14:45:18','2025-04-13 02:12:59');
+/*!40000 ALTER TABLE `turnos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-13  0:02:05
+-- Dump completed on 2025-04-14 17:32:11

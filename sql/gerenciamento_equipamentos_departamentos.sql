@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `gerenciamento_coletor_dados` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `gerenciamento_coletor_dados`;
+CREATE DATABASE  IF NOT EXISTS `gerenciamento_equipamentos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gerenciamento_equipamentos`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: gerenciamento_coletor_dados
+-- Host: localhost    Database: gerenciamento_equipamentos
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,30 +18,30 @@ USE `gerenciamento_coletor_dados`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `avarias`
+-- Table structure for table `departamentos`
 --
 
-DROP TABLE IF EXISTS `avarias`;
+DROP TABLE IF EXISTS `departamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `avarias` (
+CREATE TABLE `departamentos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `avaria` varchar(256) NOT NULL,
-  `tipo_avaria` varchar(256) NOT NULL,
-  `created_by` varchar(100) DEFAULT NULL,
+  `departamento` varchar(100) NOT NULL,
+  `created_by` varchar(256) NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `avarias`
+-- Dumping data for table `departamentos`
 --
 
-LOCK TABLES `avarias` WRITE;
-/*!40000 ALTER TABLE `avarias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `avarias` ENABLE KEYS */;
+LOCK TABLES `departamentos` WRITE;
+/*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
+INSERT INTO `departamentos` VALUES (1,'EXPEDIÇÃO','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:03',NULL),(2,'PREPARAÇÃO','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:09',NULL),(3,'REVERSA','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:24',NULL),(4,'RETRABALHO','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:27',NULL),(5,'COMPACTAÇÃO','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:30',NULL),(6,'INVENTÁRIO','DAUTON PEREIRA FÉLIX','2025-04-14 20:22:41',NULL);
+/*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-13  0:02:05
+-- Dump completed on 2025-04-14 17:32:12

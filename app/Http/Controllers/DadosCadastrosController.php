@@ -64,7 +64,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroUsuario()
     {
         $buscaItens = Usuario::get('usuario');
-        $ultimo = $buscaItens->last()->usuario;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->usuario;
         return $ultimo;
     }
 
@@ -72,7 +72,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroSite()
     {
         $buscaItens = Site::get('descricao');
-        $ultimo = $buscaItens->last()->descricao;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->descricao;
         return $ultimo;
     }
 
@@ -80,7 +80,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroDepartamento()
     {
         $buscaItens = Departamento::get('departamento');
-        $ultimo = $buscaItens->last()->departamento;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->departamento;
         return $ultimo;
     }
 
@@ -88,7 +88,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroTurno()
     {
         $buscaItens = Turno::get('turno');
-        $ultimo = $buscaItens->last()->turno;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->turno;
         return $ultimo;
     }
 
@@ -96,7 +96,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroEquipamento()
     {
         $buscaItens = Equipamento::get('patrimonio');
-        $ultimo = $buscaItens->last()->patrimonio;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->patrimonio;
         return $ultimo;
     }
 
@@ -104,7 +104,7 @@ class DadosCadastrosController extends Controller
     public static function ultimoCadastroAvaria()
     {
         $buscaItens = Avaria::get('avaria');
-        $ultimo = $buscaItens->last()->avaria;
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->avaria;
         return $ultimo;
     }
 }

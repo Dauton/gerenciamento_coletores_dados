@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `gerenciamento_coletor_dados` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `gerenciamento_coletor_dados`;
+CREATE DATABASE  IF NOT EXISTS `gerenciamento_equipamentos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gerenciamento_equipamentos`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: gerenciamento_coletor_dados
+-- Host: localhost    Database: gerenciamento_equipamentos
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,35 +18,30 @@ USE `gerenciamento_coletor_dados`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `equipamentos`
+-- Table structure for table `sites`
 --
 
-DROP TABLE IF EXISTS `equipamentos`;
+DROP TABLE IF EXISTS `sites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `equipamentos` (
+CREATE TABLE `sites` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `marca` varchar(100) NOT NULL,
-  `modelo` varchar(100) NOT NULL,
-  `serial` varchar(100) NOT NULL,
-  `patrimonio` varchar(100) NOT NULL,
-  `site_equipamento` varchar(100) NOT NULL,
-  `status` varchar(45) DEFAULT NULL,
-  `situacao` varchar(45) DEFAULT NULL,
-  `created_by` varchar(256) NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `created_by` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `equipamentos`
+-- Dumping data for table `sites`
 --
 
-LOCK TABLES `equipamentos` WRITE;
-/*!40000 ALTER TABLE `equipamentos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `equipamentos` ENABLE KEYS */;
+LOCK TABLES `sites` WRITE;
+/*!40000 ALTER TABLE `sites` DISABLE KEYS */;
+INSERT INTO `sites` VALUES (1,'CDARCEX','DAUTON PEREIRA FÉLIX','2025-04-04 11:42:06',NULL),(3,'CDAMBEX','DAUTON PEREIRA FÉLIX','2025-04-05 19:58:40',NULL),(4,'CDNIVEX','DAUTON PEREIRA FÉLIX','2025-04-10 17:28:13',NULL),(5,'CDHEIEX','DAUTON PEREIRA FÉLIX','2025-04-12 20:01:33',NULL);
+/*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-13  0:02:06
+-- Dump completed on 2025-04-14 17:32:10

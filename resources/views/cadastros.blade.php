@@ -18,7 +18,7 @@
                             <th>Área</th>
                             <th>Quant. cadastrado</th>
                             <th>Último cadastrado</th>
-                            <th> Cadastrar / Gerenciar novo / Gerenciar</th>
+                            <th>Gerenciar</th>
 
                         </tr>
                     </thead>
@@ -28,7 +28,7 @@
                                 <td>{{$contagemUsuarios}} usuários</td>
                                 <td>{{$ultimoCadastroUsuario}}</td>
                                 <td>
-                                    <a href="{{route('usuarios')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('usuarios')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
 
@@ -37,7 +37,7 @@
                                 <td>{{$contagemSites}} sites</td>
                                 <td>{{$ultimoCadastroSite}}</td>
                                 <td>
-                                    <a href="{{route('sites')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('sites')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
 
@@ -46,7 +46,7 @@
                                 <td>{{$contagemDepartamentos}} departamentos</td>
                                 <td>{{$ultimoCadastroDepartamento}}</td>
                                 <td>
-                                    <a href="{{route('departamentos')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('departamentos')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
 
@@ -55,7 +55,7 @@
                                 <td>{{$contagemTurnos}} turnos</td>
                                 <td>{{$ultimoCadastroTurno}} </td>
                                 <td>
-                                    <a href="{{route('turnos')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('turnos')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
 
@@ -64,7 +64,7 @@
                                 <td>{{$contagemEquipamentos}} equipamentos</td>
                                 <td>{{$ultimoCadastroEquipamento}}</td>
                                 <td>
-                                    <a href="{{route('equipamentos')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('equipamentos')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
 
@@ -73,7 +73,7 @@
                                 <td>{{$contagemAvarias}} avarias</td>
                                 <td>{{$ultimoCadastroAvaria}}</td>
                                 <td>
-                                    <a href="{{route('avarias')}}"><button type="button"> Cadastrar / Gerenciar</button></a>
+                                    <a href="{{route('avarias')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
                     </tbody>
