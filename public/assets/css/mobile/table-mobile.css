@@ -52,4 +52,9 @@
         justify-content: left;
         align-items: center;
     }
+
+    /* BOTÃO EXCEL DadaTables */
+    .dt-buttons {
+        display: flex;
+    }
 }

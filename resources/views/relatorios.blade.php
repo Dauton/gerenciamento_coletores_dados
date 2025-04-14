@@ -81,7 +81,7 @@
 
             <h1>Resultado da busca</h1>
 
-            <table class="DataTable">
+            <table class="DataTableExcel">
                 <thead>
                     <tr>
                         <th>Equipamento</th>
@@ -121,6 +121,11 @@
                 </tbody>
             </table>
 </section>
+
+<div id="float-buttons">
+    <a><button type="button" id="float-button"><i class="fa-solid fa-file-excel"></i></button></a>
+</div>
+
 @endif
 </article>
 @include('layouts.rodape')

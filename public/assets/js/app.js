@@ -6,9 +6,24 @@ $(document).ready(function () {
     });
 
     // BIBLIOTECA DataTables
-    $('.DataTable').DataTable({
+    $('.DataTableExcel').DataTable({
+        dom: 'Blfrtip',
+        buttons: [
+          {
+            extend: 'excelHtml5',
+            text: '<img src="/assets/img/logo-excel.png" alt="Excel" style="height:20px;">',
+            titleAttr: 'Exportar para Excel'
+          }
+        ],
         language: {
             url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json",
+        }
+    });
+
+    // BIBLIOTECA DataTables SEM BOTÃO Excel
+    $('.DataTable').DataTable({
+        language: {
+        url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json"
         }
     });
 
@@ -108,6 +123,6 @@ function convert() {
     // Convertendo Hexadecimal para Decimal
     var decimalString = parseInt(hexaString, 16);
     document.getElementById("result").innerHTML += decimalString.toString().padStart(10, '0');
-} 
-    
+}
+
 */

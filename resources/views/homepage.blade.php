@@ -99,7 +99,7 @@
 
         <section class="table-container">
 
-            <h1>Equipamento em uso no momento (pendete de devolução)</h1>
+            <h1>Equipamento em uso no momento (pendente de devolução)</h1>
 
             <table class="DataTable">
                 <thead>

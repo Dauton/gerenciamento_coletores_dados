@@ -30,7 +30,6 @@
     color: var(--tertiary-color);
 }
 .menu-lateral .usuario-info p {
-    margin-bottom: 10px;
     font-size: 13px;
 }
 .menu-lateral ul {
