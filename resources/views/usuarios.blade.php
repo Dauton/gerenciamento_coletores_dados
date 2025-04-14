@@ -11,9 +11,8 @@
             <form method="post" action="createUser">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Cadastro de usuário</h1>
-                </header>
+                <h1>Cadastro de usuário</h1>
+
                 <label for="nome"><p>Nome<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-id-card"></i>
@@ -132,9 +131,7 @@
 
             <section class="table-container">
 
-                <header class="container-cabecalho">
-                    <h1>Gerenciamento de usuários</h1>
-                </header>
+                <h1>Gerenciamento de usuários</h1>
 
                 <table class="DataTable">
                     <thead>

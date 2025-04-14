@@ -11,9 +11,7 @@
             <form method="post" action="createSite">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Cadastro de site</h1>
-                </header>
+                <h1>Cadastro de site</h1>
 
                 <label for="descricao"><p>Descrição<span> *</span></p>
                     <div>
@@ -22,11 +20,6 @@
                     </div>
                     @error('descricao')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #descricao {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 

@@ -14,11 +14,6 @@
             </div>
             @error('usuario')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #usuario {
-                        border: 1px solid #f00 !important
-                    }
-                </style>
             @enderror
         </label>
         <label for='senha'>Senha
@@ -28,11 +23,6 @@
             </div>
             @error('senha')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #senha {
-                        border: 1px solid #f00 !important
-                    }
-                </style>
             @enderror
         </label>
 

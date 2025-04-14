@@ -1,6 +1,6 @@
 form {
     width: 100%;
-    padding: 90px 40px 40px 40px;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px 2%;
@@ -8,7 +8,11 @@ form {
     box-shadow: 0 0 .3em #cdcdcd;
     border-radius: 5px;
 }
-
+form h5 {
+    width: 100%;
+    margin: 0 0 10px 0;
+    font-weight: 100;
+}
 form label {
     width: 49%;
     display: flex;

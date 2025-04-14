@@ -11,9 +11,7 @@
             <form method="post" action="/updateDepartamento/{{ $exibir->id }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Edição de departamento</h1>
-                </header>
+                <h1>Edição de departamento</h1>
 
                 <label for="departamento"><p>Departamento<span> *</span></p>
                     <div>
@@ -22,11 +20,6 @@
                     </div>
                     @error('departamento')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #departamento {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 

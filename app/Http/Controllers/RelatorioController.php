@@ -113,6 +113,14 @@ class RelatorioController extends Controller
         $sites = Site::all();
         $equipamentos = Equipamento::all();
 
+        if(count($relatorios) < 1) {
+            return view('relatorios',[
+                'relatorios' => $relatorios,
+                'sites' => $sites,
+                'equipamentos' => $equipamentos,
+                'alertError '=> 'Nenhum valor encontrado'
+            ]);
+        }
         return view('relatorios', [
             'relatorios' => $relatorios,
             'sites' => $sites,

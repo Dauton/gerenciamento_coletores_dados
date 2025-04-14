@@ -11,9 +11,7 @@
             <form method="post" action="createDepartamento">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Cadastro de departamento</h1>
-                </header>
+                <h1>Cadastro de departamento</h1>
 
                 <label for="departamento"><p>Departamento<span> *</span></p>
                     <div>
@@ -22,11 +20,6 @@
                     </div>
                     @error('departamento')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #departamento {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 
@@ -39,9 +32,7 @@
 
             <section class="table-container">
 
-                <header class="container-cabecalho">
-                    <h1>Gerenciamento de departamentos</h1>
-                </header>
+                <h1>Gerenciamento de departamentos</h1>
 
                 <table class="DataTable">
                     <thead>

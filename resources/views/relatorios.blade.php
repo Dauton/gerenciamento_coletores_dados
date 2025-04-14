@@ -13,9 +13,7 @@
         <form method="post" action="buscaRelatorio">
             @csrf
 
-            <header class="container-cabecalho">
-                <h1>Busca de relatório</h1>
-            </header>
+            <h1>Busca de relatório</h1>
 
             <label for="data_inicio">
                 <p>De<span> *</span></p>
@@ -24,12 +22,7 @@
                     <input type="date" name="data_inicio" id="data_inicio" value="{{old('data_inicio')}}">
                 </div>
                 @error('data_inicio')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #data_inicio {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -40,12 +33,7 @@
                     <input type="date" name="data_final" id="data_final" value="{{old('data_final')}}">
                 </div>
                 @error('data_final')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #data_final {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -61,12 +49,7 @@
                     </select>
                 </div>
                 @error('site')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #site {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -82,12 +65,7 @@
                     </select>
                 </div>
                 @error('equipamento')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #equipamento {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -101,9 +79,7 @@
             @else
             <section class="table-container">
 
-            <header class="container-cabecalho">
-                <h1>Resultado da busca</h1>
-            </header>
+            <h1>Resultado da busca</h1>
 
             <table class="DataTable">
                 <thead>

@@ -8,53 +8,76 @@
             <i class="fa-solid fa-database"></i>
         </header>
         <article class="conteudo">
-            <section class="conteudo-center">
-                <div class="links-container">
-                    <header class="container-cabecalho">
-                        <h1>Selecione o que deseja cadastrar</h1>
-                    </header>
-                    <a href="{{ route('usuarios') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-users-gear"></i>
-                            <h3>Usuários</h3>
-                        </div>
-                    </a>
+            <section class="table-container">
 
-                    <a href="{{ route('sites') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <h3>Sites</h3>
-                        </div>
-                    </a>
+                <h1>Cadastros</h1>
 
-                    <a href="{{ route('departamentos') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3>Departamentos</h3>
-                        </div>
-                    </a>
+                <table class="DataTable">
+                    <thead>
+                        <tr>
+                            <th>Área</th>
+                            <th>Quant. cadastrado</th>
+                            <th>Último cadastrado</th>
+                            <th>Cadastrar novo / Gerenciar</th>
 
-                    <a href="{{ route('avarias') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-burst"></i>
-                            <h3>Avarias</h3>
-                        </div>
-                    </a>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>Usuários</td>
+                                <td>{{$contagemUsuarios}} usuários</td>
+                                <td>{{$ultimoCadastroUsuario}}</td>
+                                <td>
+                                    <a href="{{route('usuarios')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
 
-                    <a href="{{ route('turnos') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-business-time"></i>
-                            <h3>Turnos</h3>
-                        </div>
-                    </a>
+                            <tr>
+                                <td>Sites</td>
+                                <td>{{$contagemSites}} sites</td>
+                                <td>{{$ultimoCadastroSite}}</td>
+                                <td>
+                                    <a href="{{route('sites')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
 
-                    <a href="{{ route('equipamentos') }}">
-                        <div class="link">
-                            <i class="fa-solid fa-microchip"></i>
-                            <h3>Equipamentos</h3>
-                        </div>
-                    </a>
-                </div>
+                            <tr>
+                                <td>Departamentos</td>
+                                <td>{{$contagemDepartamentos}} departamentos</td>
+                                <td>{{$ultimoCadastroDepartamento}}</td>
+                                <td>
+                                    <a href="{{route('departamentos')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Turnos</td>
+                                <td>{{$contagemTurnos}} turnos</td>
+                                <td>{{$ultimoCadastroTurno}} </td>
+                                <td>
+                                    <a href="{{route('turnos')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Equipamentos</td>
+                                <td>{{$contagemEquipamentos}} equipamentos</td>
+                                <td>{{$ultimoCadastroEquipamento}}</td>
+                                <td>
+                                    <a href="{{route('equipamentos')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Avarias</td>
+                                <td>{{$contagemAvarias}} avarias</td>
+                                <td>{{$ultimoCadastroAvaria}}</td>
+                                <td>
+                                    <a href="{{route('avarias')}}"><i class="fa-solid fa-file-import" id="btn-table-blue"></i></a>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
             </section>
         </article>
         @include('layouts.rodape')

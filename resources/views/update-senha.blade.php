@@ -11,11 +11,9 @@
             <form method="post" action="/updateSenha/{{ Crypt::encrypt($exibir->id) }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Reset de senha</h1>
-                </header>
+                <h1>Reset de senha</h1>
 
-                <h1>Usuário <b>{{ $exibir->nome }}</b></h1>
+                <h5>Usuário <b>{{ $exibir->nome }}</b></h5>
 
                 <label for="senha"><p>Senha<span> *</span></p>
                     <div>

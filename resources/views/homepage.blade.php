@@ -11,9 +11,8 @@
         <form method="post" action="entregaEquipamento">
             @csrf
 
-            <header class="container-cabecalho">
-                <h1>Entrega de equipamento</h1>
-            </header>
+            <h1>Entrega de equipamento</h1>
+
             <label for="equipamento">
                 <p>Equipamento<span> *</span></p>
                 <div>
@@ -21,18 +20,13 @@
                     <select name="equipamento" id="equipamento" class="select2">
                         <option value="" {{ old('equipamento') ? '' : 'selected' }}>Selecione o equipamento</option>
                         @foreach ($equipamentos as $equipamento)
-                        <option value="{{ $equipamento->patrimonio }}" {{ old('equipamento') == $equipamento->patrimonio ? 'selected' : '' }}>{{ $equipamento->patrimonio . ' - ' . $equipamento->modelo }}</option>
+                            <option value="{{ $equipamento->patrimonio }}" {{ old('equipamento') == $equipamento->patrimonio ? 'selected' : '' }}>{{ $equipamento->patrimonio . ' - ' . $equipamento->modelo }}</option>
                         @endforeach
                     </select>
 
                 </div>
                 @error('equipamento')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #equipamento {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -43,17 +37,12 @@
                     <select name="colaborador" id="colaborador" class="select2">
                         <option value="" {{ old('colaborador') ? '' : 'selected' }}>Selecione o colaborador</option>
                         @foreach ($colaboradores as $colaborador)
-                        <option value="{{ $colaborador->matricula_colaborador }}" {{ old('colaborador') == $colaborador->matricula_colaborador ? 'selected' : '' }}>{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
+                            <option value="{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}" {{ old('colaborador') == $colaborador->matricula_colaborador ? 'selected' : '' }}>{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
                         @endforeach
                     </select>
                 </div>
                 @error('colaborador')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #matricula_colaborador {
-                        border: 1px solid #f00
-                    }
-                </style>
                 @enderror
             </label>
 
@@ -65,11 +54,6 @@
                 </div>
                 @error('loginAmazon')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #loginAmazon {
-                        border: 1px solid #f00
-                    }
-                </style>
                 @enderror
             </label>
             <p id="result">000,00000000000000000000000</p>
@@ -88,11 +72,6 @@
                 </div>
                 @error('departamento')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #departamento {
-                        border: 1px solid #f00
-                    }
-                </style>
                 @enderror
             </label>
 
@@ -109,11 +88,6 @@
                 </div>
                 @error('turno')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #site {
-                        border: 1px solid #f00
-                    }
-                </style>
                 @enderror
             </label>
 
@@ -125,9 +99,7 @@
 
         <section class="table-container">
 
-            <header class="container-cabecalho">
-                <h1>Equipamento em uso no momento (pendete de devolução)</h1>
-            </header>
+            <h1>Equipamento em uso no momento (pendete de devolução)</h1>
 
             <table class="DataTable">
                 <thead>

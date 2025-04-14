@@ -11,9 +11,7 @@
             <form method="post" action="/updateUser/{{ $exibir->id }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Edição de usuário</h1>
-                </header>
+                <h1>Edição de usuário</h1>
 
                 <label for="nome"><p>Nome<span> *</span></p>
                     <div>

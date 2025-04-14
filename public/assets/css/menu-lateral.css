@@ -44,9 +44,9 @@
     padding: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 13px;
     text-decoration: none;
     color: #f1f1f1;
 }
@@ -57,7 +57,7 @@
 }
 
 .menu-lateral ul li a i {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .menu-lateral .bottom-menu {

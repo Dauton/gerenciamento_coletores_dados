@@ -11,9 +11,8 @@
             <form method="post" action="createEquipamento">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Cadastro de equipamento</h1>
-                </header>
+                <h1>Cadastro de equipamento</h1>
+
                 <label for="marca"><p>Marca<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-microchip"></i>
@@ -21,11 +20,6 @@
                     </div>
                     @error('marca')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #marca {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 
@@ -36,11 +30,6 @@
                     </div>
                     @error('modelo')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #modelo {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
                 <label for="serial"><p>Serial<span> *</span></p>
@@ -50,11 +39,6 @@
                     </div>
                     @error('serial')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #serial {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
                 <label for="patrimonio"><p>Patrimônio<span> *</span></p>
@@ -64,11 +48,6 @@
                     </div>
                     @error('patrimonio')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #patrimonio {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
             </label>
@@ -84,11 +63,6 @@
                 </div>
                 @error('site_equipamento')
                     <p id="input-error">{{ $message }}</p>
-                    <style>
-                        #site_equipamento {
-                            border: 1px solid #f00
-                        }
-                    </style>
                 @enderror
             </label>
                 <label for="status"><p>Status<span> *</span></p>
@@ -102,11 +76,6 @@
                     </div>
                     @error('status')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #status {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 
@@ -119,9 +88,7 @@
 
             <section class="table-container">
 
-                <header class="container-cabecalho">
-                    <h1>Gerenciamento de equipamentos</h1>
-                </header>
+                <h1>Gerenciamento de equipamentos</h1>
 
                 <table class="DataTable">
                     <thead>

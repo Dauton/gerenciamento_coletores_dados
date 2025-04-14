@@ -39,7 +39,10 @@ body {
 
 h1 {
     width: 100%;
+    margin: 0 0 10px 0;
+    font-size: 20px;
     font-weight: 100;
+    color: #404040;
 }
 
 .principal {
@@ -65,6 +68,7 @@ h1 {
 
 .cabecalho {
     width: 100%;
+    height: fit-content;
     padding: 15px;
     display: flex;
     align-items: center;
@@ -73,8 +77,10 @@ h1 {
     color: #f1f1f1;
 }
 .cabecalho-title {
+    margin: 0;
     font-weight: bold;
     font-size: 15px;
+    color: #f1f1f1;
 }
 .cabecalho-title a {
     color: #f1f1f1;
@@ -99,77 +105,6 @@ h1 {
 .conteudo-title {
     color: #404040;
 }
-.conteudo-title h1 {
-    font-size: 20px;
-}
-.conteudo-center {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    z-index: 0;
-}
-.container-cabecalho {
-    width: 100%;
-    padding: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 5px 5px 0 0;
-    background: linear-gradient(to right, var(--secondary-color), var(--quaternary-color));
-    color: #fff;
-}
-.container-cabecalho h1 {
-    font-size: 17px;
-}
-.conteudo-center .links-container {
-    width: fit-content;
-    padding: 90px 40px 40px 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    box-shadow: 0 0 .3em #cdcdcd;
-    border-radius: 5px;
-    position: relative;
-}
-.conteudo-center .links-container a {
-    text-decoration: none;
-    transition: .3s;
-}
-.conteudo-center .links-container .link {
-    width: 150px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    border-radius: 3px;
-    background: var(--secondary-color);
-    color: #f1f1f1;
-    font-size: 14px;
-    text-align: center;
-    transition: .2s background;
-}
-.conteudo-center .links-container .link i {
-    font-size: 40px;
-}
-.conteudo-center .links-container .link:hover {
-    background: var(--tertiary-color);
-    transition: .2s background;
-}
-.conteudo-center .links-container a:nth-child(odd):hover {
-    background: var(--tertiary-color);
-    transform: rotate(5deg) scale(1.07);
-    transition: .2s;
-}
-
-.conteudo-center .links-container a:nth-child(even):hover {
-    background: var(--tertiary-color);
-    transform: rotate(-5deg) scale(1.07);
-    transition: .2s;
-}
-
 
 .rodape {
     width: 100%;

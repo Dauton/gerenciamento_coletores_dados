@@ -25,12 +25,12 @@
     }
 
     .conteudo {
-        padding: 10px !important;
+        padding: 20px !important;
     }
 
     .conteudo-center .links-container {
         width: 100% !important;
-        padding: 70px 20px 20px 20px !important;
+        padding: 20px !important;
         flex-wrap: nowrap !important;
         flex-direction: column;
         gap: 15px !important;
@@ -42,7 +42,7 @@
     .conteudo-center .links-container a:nth-child(odd):hover {
         transform: rotate(3deg) scale(1.02) !important;
     }
-    
+
     .conteudo-center .links-container a:nth-child(even):hover {
         transform: rotate(-3deg) scale(1.02) !important;
     }

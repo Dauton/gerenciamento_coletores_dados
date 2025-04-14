@@ -40,7 +40,34 @@ class ShowPagesController extends Controller
     // CADASTROS PAGE
     public function cadastrosPage()
     {
-        return view('cadastros');
+        $contagemUsuarios = DadosCadastrosController::contaUsuarios();
+        $contagemSites = DadosCadastrosController::contaSites();
+        $contagemDepartamentos = DadosCadastrosController::contaDepartamentos();
+        $contagemTurnos = DadosCadastrosController::contaTurnos();
+        $contagemAvarias = DadosCadastrosController::contaAvarias();
+        $contagemEquipamentos = DadosCadastrosController::contaEquipamentos();
+
+        $ultimoCadastroUsuario = DadosCadastrosController::ultimoCadastroUsuario();
+        $ultimoCadastroSite = DadosCadastrosController::ultimoCadastroSite();
+        $ultimoCadastroDepartamento = DadosCadastrosController::ultimoCadastroDepartamento();
+        $ultimoCadastroTurno = DadosCadastrosController::ultimoCadastroTurno();
+        $ultimoCadastroEquipamento = DadosCadastrosController::ultimoCadastroEquipamento();
+        $ultimoCadastroAvaria = DadosCadastrosController::ultimoCadastroAvaria();
+        return view('cadastros', compact(
+            'contagemUsuarios',
+            'contagemSites',
+            'contagemDepartamentos',
+            'contagemTurnos',
+            'contagemEquipamentos',
+            'contagemAvarias',
+
+            'ultimoCadastroUsuario',
+            'ultimoCadastroSite',
+            'ultimoCadastroDepartamento',
+            'ultimoCadastroTurno',
+            'ultimoCadastroEquipamento',
+            'ultimoCadastroAvaria'
+        ));
     }
 
     // USERS PAGE

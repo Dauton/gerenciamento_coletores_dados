@@ -11,22 +11,15 @@
             <form method="post" action="/updateAvaria/{{ $exibir->id }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Edição de site</h1>
-                </header>
+                <h1>Edição de site</h1>
 
                 <label for="avaria"><p>Avaria<span> *</span></p>
                     <div>
                         <i class="fa-solid fa-burst"></i>
-                        <input type="text" name="avaria" id="avaria" placeholder="Complete com o nome da avaria" value="{{ $exibir->avaria }}">
+                        <input type="text" name="avaria" id="avaria" placeholder="Complete com a descrição da avaria" value="{{ $exibir->avaria }}">
                     </div>
                     @error('avaria')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #avaria {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 
@@ -41,11 +34,6 @@
                     </div>
                     @error('tipo_avaria')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #avaria {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 

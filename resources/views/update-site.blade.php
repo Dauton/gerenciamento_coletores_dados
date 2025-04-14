@@ -11,9 +11,7 @@
             <form method="post" action="/updateSite/{{ $exibir->id }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Edição de site</h1>
-                </header>
+                <h1>Edição de site</h1>
 
                 <label for="descricao"><p>Descrição<span> *</span></p>
                     <div>

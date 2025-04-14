@@ -13,9 +13,8 @@
         <form method="post" action="/devolveEquipamento/{{ $idRelatorio->id }}" enctype="multipart/form-data">
             @csrf
 
-            <header class="container-cabecalho">
-                <h1>Devolução de equipamento</h1>
-            </header>
+            <h1>Devolução de equipamento</h1>
+
             <label for="ha_avaria">
                 <p>O equipamento está avariado?<span> *</span></p>
                 <div>
@@ -28,12 +27,7 @@
 
                 </div>
                 @error('ha_avaria')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #ha_avaria {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
             <label for="avaria" id="label_descricao_avaria">
@@ -48,12 +42,7 @@
                     </select>
                 </div>
                 @error('avaria')
-                <p id="input-error">{{ $message }}</p>
-                <style>
-                    #avaria {
-                        border: 1px solid #f00
-                    }
-                </style>
+                    <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
 
@@ -65,11 +54,6 @@
                 </div>
                 @error('foto_avaria')
                 <p id="input-error">{{ $message }}</p>
-                <style>
-                    #foto_avaria {
-                        border: 1px solid #f00
-                    }
-                </style>
                 @enderror
             </label>
 
@@ -83,9 +67,7 @@
 
         <section class="table-container">
 
-            <header class="container-cabecalho">
-                <h1>Informações de uso</h1>
-            </header>
+            <h1>Informações de uso</h1>
 
             <table>
                 <thead>

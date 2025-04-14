@@ -11,9 +11,7 @@
             <form method="post" action="createTurno">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Cadastro de turno</h1>
-                </header>
+                <h1>Cadastro de turno</h1>
 
                 <label for="turno"><p>Turno<span> *</span></p>
                     <div>
@@ -22,11 +20,6 @@
                     </div>
                     @error('turno')
                         <p id="input-error">{{ $message }}</p>
-                        <style>
-                            #turno {
-                                border: 1px solid #f00
-                            }
-                        </style>
                     @enderror
                 </label>
 
@@ -39,9 +32,7 @@
 
             <section class="table-container">
 
-                <header class="container-cabecalho">
-                    <h1>Gerenciamento de turnos</h1>
-                </header>
+                <h1>Gerenciamento de turnos</h1>
 
                 <table class="DataTable">
                     <thead>

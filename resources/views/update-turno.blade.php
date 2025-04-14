@@ -11,9 +11,7 @@
             <form method="post" action="/updateTurno/{{ $exibir->id }}">
                 @csrf
 
-                <header class="container-cabecalho">
-                    <h1>Edição de turno</h1>
-                </header>
+                <h1>Edição de turno</h1>
 
                 <label for="turno"><p>Descrição<span> *</span></p>
                     <div>

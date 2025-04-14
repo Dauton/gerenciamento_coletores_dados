@@ -1,11 +1,13 @@
 .table-container {
     width: 100%;
-    padding: 90px 40px 40px 40px;
+    padding: 30px;
     position: relative;
     box-shadow: 0 0 .3em #cdcdcd;
     border-radius: 5px;
 }
-
+.table-container h1 {
+    margin: 0 0 30px 0;
+}
 table {
     width: 100%;
     margin: 10px 0 !important;
@@ -42,6 +44,11 @@ table tr:nth-child(even) {
 table td {
     color: #505050;
 }
+
+table tr:last-child th {
+    width: 0 !important;
+}
+
 .dataTables_length {
     font-size: 12px !important;
 }
@@ -64,7 +71,7 @@ table td {
     text-align: center;
     color: #fff !important;
   }
-  
+
   /* Botões padrão */
   .dataTables_wrapper .dataTables_paginate .paginate_button {
     background-color: var(--secondary-color) !important;
@@ -75,13 +82,13 @@ table td {
     font-size: 13px;
     cursor: pointer;
   }
-  
+
   /* Hover */
   .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     border: none !important;
     background: var(--tertiary-color) !important;
   }
-  
+
   /* Botão ativo */
   .dataTables_wrapper .dataTables_paginate .paginate_button.current {
     background-color: var(--tertiary-color) !important;
