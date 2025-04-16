@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Colaborador;
 use App\Models\Departamento;
 use App\Models\Equipamento;
 use App\Models\Site;
@@ -141,5 +142,25 @@ class CreateController extends Controller
         ]);
 
         return redirect('equipamentos')->with('alertSuccess', 'Equipamento cadastrado com sucesso.');
+    }
+
+    // CADASTRO DE COLABORADOR
+    public function createColaborador(Request $request)
+    {
+        InputValidationsController::validationsColaborador($request);
+
+        $nome_colaborador = $request->input('nome_colaborador');
+        $matricula_colaborador = $request->input('matricula_colaborador');
+        $site_colaborador = $request->input('site_colaborador');
+
+        Colaborador::insert([
+            'nome_colaborador' => trim(mb_strtoupper($nome_colaborador)),
+            'matricula_colaborador' => trim(mb_strtoupper($matricula_colaborador)),
+            'site_colaborador' => trim(mb_strtoupper($site_colaborador)),
+            'created_by' => session('usuario.nome')
+        ]);
+
+        return redirect('colaboradores')->with('alertSuccess', 'Colaborador cadastrado com sucesso.');
+
     }
 }

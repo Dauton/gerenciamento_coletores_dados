@@ -97,6 +97,9 @@
         </article>
         @include('layouts.rodape')
     </section>
+    <div id="float-buttons">
+        <a><button type="button" id="float-button" class="float-button-red"><i class="fa-solid fa-trash"></i></button></a>
+    </div>
     @section('executa-confirmacao')
         <a href="/deleteEquipamento/{{ Crypt::encrypt($exibir->id) }}"><button type="button" id="btn-red">Excluir</button></a>
     @endsection

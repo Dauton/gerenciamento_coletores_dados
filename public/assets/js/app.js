@@ -1,29 +1,45 @@
 $(document).ready(function () {
 
     // BIBLIOTECA Select2
-    $(window).on('load', function () {
-        $('.select2').select2();
-    });
+    $('.select2').select2();
 
     // BIBLIOTECA DataTables
     $('.DataTableExcel').DataTable({
         dom: 'Blfrtip',
         buttons: [
-          {
-            extend: 'excelHtml5',
-            text: '<img src="/assets/img/logo-excel.png" alt="Excel" style="height:20px;">',
-            titleAttr: 'Exportar para Excel'
-          }
+            {
+                extend: 'excelHtml5',
+                text: '<img src="/assets/img/logo-excel.png" alt="Excel" style="height:20px;">',
+                titleAttr: 'Exportar para Excel'
+            }
         ],
         language: {
-            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json",
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sSearch": "Buscar:",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
         }
     });
 
     // BIBLIOTECA DataTables SEM BOTÃO Excel
     $('.DataTable').DataTable({
         language: {
-        url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json"
+            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json"
         }
     });
 

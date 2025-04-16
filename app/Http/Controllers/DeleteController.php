@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Colaborador;
 use App\Models\Departamento;
 use App\Models\Equipamento;
 use App\Models\Site;
@@ -89,5 +90,18 @@ class DeleteController extends Controller
 
         Equipamento::where('id', $id)->delete();
         return redirect('/equipamentos')->with('alertSuccess', 'Equipamento excluído com sucesso.');
+    }
+
+    // EXLCUI COLABORADOR
+    public function deleteColaborador($id)
+    {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
+        Colaborador::where('id', $id)->delete();
+        return redirect('/colaboradores')->with('alertSuccess', 'Colaborador excluído com sucesso.');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Colaborador;
 use App\Models\Departamento;
 use App\Models\Equipamento;
 use App\Models\Site;
@@ -130,5 +131,26 @@ class UpdateController extends Controller
         ]);
 
         return redirect('equipamentos')->with('alertSuccess', 'Equipamento editado com sucesso.');
+    }
+
+    // UPDATE COLABORADOR
+    public function updateColaborador(Request $request, $id)
+    {
+        // VALIDAÇÕES DOS CAMPOS
+        InputValidationsController::validationsColaborador($request);
+
+        $nome_colaborador = $request->input('nome_colaborador');
+        $matricula_colaborador = $request->input('matricula_colaborador');
+        $site_colaborador = $request->input('site_colaborador');
+        $updated_at = now();
+
+        Colaborador::where('id', $id)->update([
+            'nome_colaborador' => trim(mb_strtoupper($nome_colaborador)),
+            'matricula_colaborador' => trim(mb_strtoupper($matricula_colaborador)),
+            'site_colaborador' => trim(mb_strtoupper($site_colaborador)),
+            'updated_at' => $updated_at
+        ]);
+
+        return redirect('colaboradores')->with('alertSuccess', 'Colaborador editado com sucesso.');
     }
 }

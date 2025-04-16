@@ -170,6 +170,22 @@ class InputValidationsController extends Controller
         );
     }
 
+    public static function validationsColaborador(Request $request)
+    {
+        $request->validate(
+            [
+                'nome_colaborador' => ['required'],
+                'matricula_colaborador' => ['required'],
+                'site_colaborador' => ['required'],
+            ],
+            [
+                'nome_colaborador.required' => 'O nome do colaborador deve ser informado.',
+                'matricula_colaborador.required' => 'A matrícula do colaborador deve ser informada.',
+                'site_colaborador.required' => 'O site do colaborador deve ser informado.',
+            ]
+        );
+    }
+
     public static function validationsEntregaEquipamento(Request $request)
     {
         $request->validate(

@@ -76,6 +76,15 @@
                                     <a href="{{route('avarias')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td>Colaboradores</td>
+                                <td>{{$contagemColaboradores}} colaboradores</td>
+                                <td>{{$ultimoCadastroColaborador}}</td>
+                                <td>
+                                    <a href="{{route('colaboradores')}}"><i class="fa-solid fa-file-circle-plus" id='btn-table-blue'></i></a>
+                                </td>
+                            </tr>
                     </tbody>
                 </table>
             </section>

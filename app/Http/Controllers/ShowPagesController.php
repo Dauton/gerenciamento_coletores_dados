@@ -12,6 +12,7 @@ use App\Models\Turno;
 use App\Models\Usuario;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
+use sapiensConn;
 
 class ShowPagesController extends Controller
 {
@@ -26,15 +27,29 @@ class ShowPagesController extends Controller
     public function homepagePage()
     {
 
-        $equipamentos = Equipamento::all()->where('site_equipamento', session('usuario.site'));
-        $colaboradores = Colaborador::all();
+        $equipamentos = Equipamento::all();
+        $colaboradores = SapiensController::listaColaboradores();
         $turnos = Turno::all();
         $departamentos = Departamento::all();
-        $relatorios = Relatorio::all()->where('data_devolucao', NULL)->where('site', session('usuario.site'));
+        $relatorios = Relatorio::all()->where('data_devolucao', NULL);
         return view(
             'homepage',
             compact('equipamentos', 'colaboradores', 'turnos', 'departamentos', 'relatorios')
         );
+    }
+
+    public function devolveEquipamentoPage($id)
+    {
+        $idRelatorio = Relatorio::where('id', $id)->first();
+        $exibir = Relatorio::all()->where('id', $id);
+        $avarias = Avaria::orderBy('tipo_avaria')->get();
+
+        // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
+        if (!empty($exibir->first()->data_devolucao)) {
+            return redirect()->back()->with('alertError', 'Esse equipamento já foi devolvido.');
+        }
+
+        return view('devolve-equipamento', compact('idRelatorio', 'exibir', 'avarias'));
     }
 
     // CADASTROS PAGE
@@ -46,6 +61,7 @@ class ShowPagesController extends Controller
         $contagemTurnos = DadosCadastrosController::contaTurnos();
         $contagemAvarias = DadosCadastrosController::contaAvarias();
         $contagemEquipamentos = DadosCadastrosController::contaEquipamentos();
+        $contagemColaboradores = DadosCadastrosController::contaColaboradores();
 
         $ultimoCadastroUsuario = DadosCadastrosController::ultimoCadastroUsuario();
         $ultimoCadastroSite = DadosCadastrosController::ultimoCadastroSite();
@@ -53,6 +69,8 @@ class ShowPagesController extends Controller
         $ultimoCadastroTurno = DadosCadastrosController::ultimoCadastroTurno();
         $ultimoCadastroEquipamento = DadosCadastrosController::ultimoCadastroEquipamento();
         $ultimoCadastroAvaria = DadosCadastrosController::ultimoCadastroAvaria();
+        $ultimoCadastroColaborador = DadosCadastrosController::ultimoCadastroColaborador();
+
         return view('cadastros', compact(
             'contagemUsuarios',
             'contagemSites',
@@ -60,13 +78,15 @@ class ShowPagesController extends Controller
             'contagemTurnos',
             'contagemEquipamentos',
             'contagemAvarias',
+            'contagemColaboradores',
 
             'ultimoCadastroUsuario',
             'ultimoCadastroSite',
             'ultimoCadastroDepartamento',
             'ultimoCadastroTurno',
             'ultimoCadastroEquipamento',
-            'ultimoCadastroAvaria'
+            'ultimoCadastroAvaria',
+            'ultimoCadastroColaborador'
         ));
     }
 
@@ -115,26 +135,19 @@ class ShowPagesController extends Controller
         return view('equipamentos', compact('exibir', 'sites'));
     }
 
-    public function devolveEquipamentoPage($id)
-    {
-        $idRelatorio = Relatorio::where('id', $id)->first();
-        $exibir = Relatorio::all()->where('id', $id);
-        $avarias = Avaria::orderBy('tipo_avaria')->get();
-
-        // CASO HAJA A TENTATIVA DE ACESSAR UM RELATÓRIO JÁ CONCLUÍDO
-        if (!empty($exibir->first()->data_devolucao)) {
-            return redirect()->back()->with('alertError', 'Esse equipamento já foi devolvido.');
-        }
-
-        return view('devolve-equipamento', compact('idRelatorio', 'exibir', 'avarias'));
-    }
-
     public function relatoriosPage()
     {
         $relatorios = Relatorio::limit(0)->get();
         $sites = Site::orderBy('descricao')->get();
         $equipamentos = Equipamento::orderBy('modelo')->get();
         return view('relatorios', compact('relatorios', 'sites', 'equipamentos'));
+    }
+
+    public function colaboradoresPage()
+    {
+        $colaboradores = Colaborador::all();
+        $sites = Site::orderBy('descricao')->get();
+        return view('colaboradores', compact('colaboradores', 'sites'));
     }
 
     // _________________________________________________________________________________________________________________
@@ -232,5 +245,19 @@ class ShowPagesController extends Controller
         $exibir = Equipamento::where('id', $id)->first();
         $sites = Site::orderBy('descricao')->get();
         return view('update-equipamento', compact('exibir', 'sites'));
+    }
+
+    // UPDATE COLABORADOR PAGE
+    public function updateColaboradorPage($id)
+    {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException) {
+            return redirect()->back()->with('alertError', 'Ops! algo deu errado.');
+        }
+
+        $exibir = Colaborador::where('id', $id)->first();
+        $sites = Site::orderBy('descricao')->get();
+        return view('update-colaborador', compact('exibir', 'sites'));
     }
 }

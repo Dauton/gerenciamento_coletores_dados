@@ -37,7 +37,7 @@
                     <select name="colaborador" id="colaborador" class="select2">
                         <option value="" {{ old('colaborador') ? '' : 'selected' }}>Selecione o colaborador</option>
                         @foreach ($colaboradores as $colaborador)
-                            <option value="{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}" {{ old('colaborador') == $colaborador->matricula_colaborador ? 'selected' : '' }}>{{ $colaborador->matricula_colaborador . ' - ' . $colaborador->nome_colaborador }}</option>
+                            <option value="{{ $colaborador['USU_NUMCAD'] . ' - ' . $colaborador['USU_NOMFUN'] }}">{{ $colaborador['USU_NUMCAD'] . ' - ' . $colaborador['USU_NOMFUN'] }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -60,7 +60,7 @@
             -->
 
             <label for="departamento">
-                <p>Departamentos<span> *</span></p>
+                <p>Departamento<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-business-time"></i>
                     <select name="departamento" id="departamento" class="select2">

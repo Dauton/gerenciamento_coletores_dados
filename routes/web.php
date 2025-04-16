@@ -7,6 +7,7 @@ use App\Http\Controllers\SenhaController;
 use App\Http\Controllers\RelatorioController;
 use App\Http\Controllers\ShowPagesController;
 use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\SapiensController;
 use App\Http\Middleware\CheckPerfil;
 use App\Http\Middleware\EstaLogado;
 use App\Http\Middleware\NaoEstaLogado;
@@ -26,6 +27,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
         Route::get('/turnos', [ShowPagesController::class, 'turnosPage'])->name('turnos');
         Route::get('/departamentos', [ShowPagesController::class, 'departamentosPage'])->name('departamentos');
         Route::get('/equipamentos', [ShowPagesController::class, 'equipamentosPage'])->name('equipamentos');
+        Route::get('/colaboradores', [ShowPagesController::class, 'colaboradoresPage'])->name('colaboradores');
 
         Route::get('/update-usuario/{id}', [ShowPagesController::class, 'updateUsuarioPage'])->name('update-usuario');
         Route::get('/update-site/{id}', [ShowPagesController::class, 'updateSitePage'])->name('update-site');
@@ -33,6 +35,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
         Route::get('/update-turno/{id}', [ShowPagesController::class, 'updateTurnoPage'])->name('update-turno');
         Route::get('/update-departamento/{id}', [ShowPagesController::class, 'updateDepartamentoPage'])->name('update-departamento');
         Route::get('/update-equipamento/{id}', [ShowPagesController::class, 'updateEquipamentoPage'])->name('update-equipamento');
+        Route::get('/update-colaborador/{id}', [ShowPagesController::class, 'updateColaboradorPage'])->name('update-colaborador');
 
         // EXECUSÕES ROUTES
         Route::post('/createUser', [CreateController::class, 'createUser'])->name('createUser');
@@ -41,6 +44,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
         Route::post('/createTurno', [CreateController::class, 'createTurno'])->name('createTurno');
         Route::post('/createDepartamento', [CreateController::class, 'createDepartamento'])->name('createDepartamento');
         Route::post('/createEquipamento', [CreateController::class, 'createEquipamento'])->name('createEquipamento');
+        Route::post('/createColaborador', [CreateController::class, 'createColaborador'])->name('createColaborador');
 
         Route::post('/updateUser/{id}', [UpdateController::class, 'updateUser'])->name('updateUser');
         Route::post('/updateSite/{id}', [UpdateController::class, 'updateSite'])->name('updateSite');
@@ -48,6 +52,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
         Route::post('/updateTurno/{id}', [UpdateController::class, 'updateTurno'])->name('updateTurno');
         Route::post('/updateDepartamento/{id}', [UpdateController::class, 'updateDepartamento'])->name('updateDepartamento');
         Route::post('/updateEquipamento/{id}', [UpdateController::class, 'updateEquipamento'])->name('updateEquipamento');
+        Route::post('/updateColaborador/{id}', [UpdateController::class, 'updateColaborador'])->name('updateColaborador');
 
         Route::get('/deleteUsuario/{id}', [DeleteController::class, 'deleteUsuario'])->name('deleteUsuario');
         Route::get('/deleteSite/{id}', [DeleteController::class, 'deleteSite'])->name('deleteSite');
@@ -55,6 +60,7 @@ Route::middleware([NaoEstaLogado::class])->group(function() {
         Route::get('/deleteTurno/{id}', [DeleteController::class, 'deleteTurno'])->name('deleteTurno');
         Route::get('/deleteDepartamento/{id}', [DeleteController::class, 'deleteDepartamento'])->name('deleteDepartamento');
         Route::get('/deleteEquipamento/{id}', [DeleteController::class, 'deleteEquipamento'])->name('deleteEquipamento');
+        Route::get('/deleteColaborador/{id}', [DeleteController::class, 'deleteColaborador'])->name('deleteColaborador');
     });
 
     // SHOWPAGES ROUTES

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avaria;
+use App\Models\Colaborador;
 use App\Models\Departamento;
 use App\Models\Equipamento;
 use App\Models\Site;
@@ -52,6 +53,13 @@ class DadosCadastrosController extends Controller
     public static function contaAvarias()
     {
         $contagem = Avaria::count();
+        return $contagem;
+    }
+
+        // CONTA COLABORADORES CADASTRADOS
+    public static function contaColaboradores()
+    {
+        $contagem = Colaborador::count();
         return $contagem;
     }
 
@@ -105,6 +113,14 @@ class DadosCadastrosController extends Controller
     {
         $buscaItens = Avaria::get('avaria');
         $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->avaria;
+        return $ultimo;
+    }
+
+    // ÚLTIMO COLABORADOR CADASTRADO
+    public static function ultimoCadastroColaborador()
+    {
+        $buscaItens = Colaborador::get('nome_colaborador');
+        $ultimo = $buscaItens->isEmpty() ? null : $buscaItens->last()->nome_colaborador;
         return $ultimo;
     }
 }
