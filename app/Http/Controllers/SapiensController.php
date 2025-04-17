@@ -34,12 +34,12 @@ class SapiensController extends Controller
         if ($query === false) {
             die(print_r(sqlsrv_errors(), true));
         }
-        $usuarios = [];
+        $colaboradores = [];
         while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) {
-            $usuarios[] = $row;
+            $colaboradores[] = $row;
         }
 
-        return $usuarios;
+        return $colaboradores;
     }
 
 }
