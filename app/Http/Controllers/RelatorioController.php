@@ -110,7 +110,7 @@ class RelatorioController extends Controller
         }
 
         $relatorios = $query->orderBy('data_devolucao')->get();
-        $sites = Site::all();
+        $sites = SapiensController::listaSites();
         $equipamentos = Equipamento::all();
 
         if(count($relatorios) < 1) {

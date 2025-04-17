@@ -87,14 +87,13 @@ setTimeout(() => {
 }, 5000);
 
 /*
-
 document.getElementById("loginAmazon").addEventListener("input", convert);
 
 function convert() {
     var loginAmazon = document.getElementById("loginAmazon").value;
 
     if (!loginAmazon || Number(loginAmazon) < 0) {
-        document.getElementById("result").innerHTML = "000,00000000000000000000000";
+        document.getElementById("loginAmazonConvertido").value = "000,00000000000000000000000";
         return;
     }
 
@@ -107,7 +106,7 @@ function convert() {
     var abatrackRest = abatrackHexa.substring(abaLength - 6, abaLength - 4);
     var numberOfZeros = 0;
     for (var i = 0; i < abatrackLast4.length; i++) {
-        if (abatrackLast4.charAt(i) == '0') {
+        if (abatrackLast4.charAt(i) == '0'  ) {
             numberOfZeros++;
         } else {
             break;
@@ -123,22 +122,18 @@ function convert() {
         wiegandEndZeros += "0";
     }
     var wiegandString = wiegandBegin.toString().padStart(3, '0') + "," + wiegandEndZeros + wiegandEnd.toString().padStart(5, '0');
-    var serialID = parseInt(wiegandString.replace(",", ""));
-    document.getElementById("result").innerHTML = wiegandString;
 
-    // Convertendo Wiegand para Hexadecimal
-    var facilityCode = wiegandString.slice(0, 3); // Primeiros 3 dígitos
-    var digitsAfterComma = wiegandString.slice(4); // Dígitos após a vírgula
+    var facilityCode = wiegandString.slice(0, 3);
+    var digitsAfterComma = wiegandString.slice(4);
 
     var facilityCodeHex = parseInt(facilityCode).toString(16).toUpperCase();
     var digitsAfterCommaHex = parseInt(digitsAfterComma).toString(16).toUpperCase();
 
     var hexaString = facilityCodeHex.padStart(4, '0') + digitsAfterCommaHex.padStart(4, '0');
-    document.getElementById("result").innerHTML + hexaString;
+    var decimalString = parseInt(hexaString, 16).toString().padStart(10, '0');
 
-    // Convertendo Hexadecimal para Decimal
-    var decimalString = parseInt(hexaString, 16);
-    document.getElementById("result").innerHTML += decimalString.toString().padStart(10, '0');
+    // Exibir no input convertido
+    var finalResult = wiegandString + decimalString;
+    document.getElementById("loginAmazonConvertido").value = finalResult;
 }
-
 */

@@ -62,7 +62,7 @@
                         <select name="site" id="site" class="select2">
                             <option value="{{ old('site') }}">Selecione o site</option>
                             @foreach ($sites as $site)
-                                <option value="{{ $site->descricao }}">{{ $site->descricao }}</option>
+                                <option value="{{ $site['usu_nomfil'] }}">{{ $site['usu_nomfil'] }}</option>
                             @endforeach
                         </select>
                     </div>

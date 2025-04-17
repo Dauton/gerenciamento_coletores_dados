@@ -37,7 +37,7 @@
                     <select name="colaborador" id="colaborador" class="select2">
                         <option value="" {{ old('colaborador') ? '' : 'selected' }}>Selecione o colaborador</option>
                         @foreach ($colaboradores as $colaborador)
-                            <option value="{{ $colaborador['USU_NUMCAD'] . ' - ' . $colaborador['USU_NOMFUN'] }}">{{ $colaborador['USU_NUMCAD'] . ' - ' . $colaborador['USU_NOMFUN'] }}</option>
+                            <option value="{{ $colaborador['usu_numcad'] . ' - ' . $colaborador['usu_nomfun'] }}">{{ $colaborador['usu_numcad'] . ' - ' . $colaborador['usu_nomfun'] }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -46,17 +46,29 @@
                 @enderror
             </label>
 
-            <!--<label for="loginAmazon">
+            <!--
+            <label for="loginAmazon">
                 <p>Login Amazon<span> *</span></p>
                 <div>
                     <i class="fa-solid fa-user-tag"></i>
-                    <input type="number" name="loginAmazon" id="loginAmazon">
+                    <input type="number" name="loginAmazon" id="loginAmazon" value="">
                 </div>
                 @error('loginAmazon')
                 <p id="input-error">{{ $message }}</p>
                 @enderror
             </label>
-            <p id="result">000,00000000000000000000000</p>
+
+
+            <label for="loginAmazon">
+                <p>Login Amazon Convertido<span> *</span></p>
+                <div>
+                    <i class="fa-solid fa-user-tag"></i>
+                    <input type="text" name="loginAmazonConvertido" id="loginAmazonConvertido">
+                </div>
+                @error('loginAmazon')
+                <p id="input-error">{{ $message }}</p>
+                @enderror
+            </label>
             -->
 
             <label for="departamento">

@@ -2,44 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use PDO;
 
 class SapiensController extends Controller
 {
 
-    public static function listaColaboradores()
+    // CONEXÃO SAPIENS
+    private static function sapiensConn()
     {
-
         $host = "10.60.253.20";
-        $opcoes = [
-            "Database" => "sapiens",
-            "Uid" => "consulta",
-            "PWD" => "@dM1324",
-            "TrustServerCertificate" => true,
-            "Encrypt" => true
-        ];
+        $database = "sapiens";
+        $Uid = "consulta";
+        $PWD = "@dM1324";
 
-        $conn = sqlsrv_connect($host, $opcoes);
-
-        if ($conn === false) {
-            die(print_r(sqlsrv_errors(), true));
-        }
-
-        $sql = "SELECT USU_NOMFUN, USU_NUMCAD
-                FROM usu_tcadfun
-                WHERE usu_dessit = 'Ativo'
-                ORDER BY usu_nomfun";
-        $query = sqlsrv_query($conn, $sql);
-
-        if ($query === false) {
-            die(print_r(sqlsrv_errors(), true));
-        }
-        $colaboradores = [];
-        while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) {
-            $colaboradores[] = $row;
-        }
-
-        return $colaboradores;
+        return new PDO("odbc:DRIVER={SQL Server}; SERVER=$host; UID=$Uid; PWD=$PWD; DATABASE=$database");
     }
 
+    // LISTAGEM DE COLABORADORES VIA SAPIENS
+    public static function listaColaboradores()
+    {
+        // usu_numcad = matrícula
+        // usu_nomfun = nome
+        // usu_tcadfun = tabela
+        // usu_dessit = status[ativo, demitido, ferias etc...]
+        $stmt = self::sapiensConn()->prepare("SELECT usu_numcad, usu_nomfun FROM usu_tcadfun WHERE usu_dessit = 'Ativo' ORDER BY usu_nomfun");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // LISTAGEM DE SITES VIA SAPIENS
+    public static function listaSites()
+    {
+        // usu_nomfil = filial ex: CDARCEX
+        // usu_tcadfun = tabela
+        $stmt = self::sapiensConn()->prepare("SELECT DISTINCT usu_nomfil FROM usu_tcadfun WHERE usu_nomfil != '' ORDER BY usu_nomfil");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

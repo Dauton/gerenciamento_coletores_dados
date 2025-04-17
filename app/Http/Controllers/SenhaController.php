@@ -30,6 +30,6 @@ class SenhaController extends Controller
         if($id == session('usuario.id')) {
             return redirect(route('homepage'))->with('alertSuccess', 'Senha resetada com sucesso.');
         }
-            return redirect("/update-usuario/" . Crypt::encrypt($id))->with('alertSuccess', 'Senha resetada com sucesso.');
+            return redirect("update-usuario/" . Crypt::encrypt($id))->with('alertSuccess', 'Senha resetada com sucesso.');
     }
-}   
+}

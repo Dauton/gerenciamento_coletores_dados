@@ -47,7 +47,7 @@
                         <select name="site_colaborador" id="site_colaborador" class="select2">
                             <option value="{{ $exibir->site_colaborador }}">{{ $exibir->site_colaborador }}</option>
                             @foreach ($sites as $site)
-                                <option value="{{$site->descricao}}">{{$site->descricao}}</option>
+                                <option value="{{$site['usu_nomfil']}}">{{$site['usu_nomfil']}}</option>
                             @endforeach
                         </select>
                     </div>

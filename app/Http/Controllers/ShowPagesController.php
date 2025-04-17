@@ -12,7 +12,7 @@ use App\Models\Turno;
 use App\Models\Usuario;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
-use sapiensConn;
+use PDO;
 
 class ShowPagesController extends Controller
 {
@@ -94,7 +94,7 @@ class ShowPagesController extends Controller
     public function usuariosPage()
     {
         $exibir = Usuario::all();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('usuarios', compact('exibir', 'sites'));
     }
 
@@ -131,14 +131,14 @@ class ShowPagesController extends Controller
     public function equipamentosPage()
     {
         $exibir = Equipamento::all();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('equipamentos', compact('exibir', 'sites'));
     }
 
     public function relatoriosPage()
     {
         $relatorios = Relatorio::limit(0)->get();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         $equipamentos = Equipamento::orderBy('modelo')->get();
         return view('relatorios', compact('relatorios', 'sites', 'equipamentos'));
     }
@@ -146,7 +146,7 @@ class ShowPagesController extends Controller
     public function colaboradoresPage()
     {
         $colaboradores = Colaborador::all();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('colaboradores', compact('colaboradores', 'sites'));
     }
 
@@ -177,7 +177,7 @@ class ShowPagesController extends Controller
         }
 
         $exibir = Usuario::where('id', $id)->first();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('update-usuario', compact('exibir', 'sites'));
     }
 
@@ -243,7 +243,7 @@ class ShowPagesController extends Controller
         }
 
         $exibir = Equipamento::where('id', $id)->first();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('update-equipamento', compact('exibir', 'sites'));
     }
 
@@ -257,7 +257,7 @@ class ShowPagesController extends Controller
         }
 
         $exibir = Colaborador::where('id', $id)->first();
-        $sites = Site::orderBy('descricao')->get();
+        $sites = SapiensController::listaSites();
         return view('update-colaborador', compact('exibir', 'sites'));
     }
 }
